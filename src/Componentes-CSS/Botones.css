@@ -1,0 +1,89 @@
+.buttonNuevoPedido {
+  max-width: 100%;
+  min-width: 50px; 
+  font-size: 16px;
+  float:right;
+  background-color: #000;
+ }
+
+ button.btn.btn-primary.buttonNuevoPedido {
+  background-color: #000;
+  color: #fff;
+  border-color:#000;
+  
+ }
+
+ button.btn.btn-primary.buttonNuevoPedido:hover {
+  background-color: #18181a;
+  color: #fff;
+  border-color:#18181a;
+  
+ }
+ 
+  
+  @media (max-width: 768px) {
+    .buttonNuevoPedido {
+      font-size: 14px;
+     /* Alinear a la derecha en lugar de flotar */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .buttonNuevoPedido {
+      font-size: 12px;
+    }
+  }
+
+
+
+.botonVolver {
+  float: left;
+  height: 50px;
+}
+
+.buttonEliminarPedido{
+    color:black;
+}
+
+
+.botonesCard  button {
+    background-color: transparent;
+    color: #000000;
+    border-color: #ffffff;
+    
+  }
+
+ @media (max-width: 1200px) {
+    .d-flex.align-items-center {
+      justify-content: center;
+      align-items: end;
+      height: 100%;
+      margin-left: 30px;
+    }
+  }
+
+  @media (max-width: 779px) {
+    .d-flex.align-items-center .iconoTrash {
+    margin-left: 10px;
+    }
+  }
+
+  .boton-guardar-container {
+    display: inline-block;
+    margin-top:15px;
+  }
+  
+ .botones {
+    text-align: center;
+  }
+
+ .numeroCantidad{
+    font-size: 19px;
+  }
+
+  .headerProductos{
+    display:flex;
+    justify-content: space-between;
+  }
+
+

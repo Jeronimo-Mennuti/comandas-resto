@@ -1,0 +1,57 @@
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding: 5px 0;
+}
+
+.card-personalizada {
+  max-width: 100%;
+  
+}
+
+@media (min-width: 500px) {
+  .card-personalizada {
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Cantidad {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.Cantidad {
+  margin-right: 30px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.totalPedido {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.pedidoscontainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.descripcionCard{
+  display:inline;
+  text-align:start;
+}
+
+.descripcionCard div {
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+}
