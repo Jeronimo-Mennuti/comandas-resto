@@ -2,8 +2,6 @@
 //crear un historial de platos y bebidas vendidas.
 //en sugerencias para agregar productos agregar categorias
 //agregar input de categoria (bebida o comida)
-//agregar el numero de pedidos activos.
-
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
