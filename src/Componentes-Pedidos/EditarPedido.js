@@ -338,27 +338,16 @@ return (
       <div>
         <nav>
           <ul>
-            <li>
-              <Link to="/Pedidos">
-                Pedidos <i className="fas fa-clipboard-list"></i>
-              </Link>
+            <li >
+              <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
             </li>
             <li>
-              <Link to="/Productos">
-                Productos <i className="fas fa-shopping-bag"></i>
-              </Link>
+              <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
             </li>
             <li>
-              <Link to="/Historial">
-                Historial <i className="fas fa-history"></i>
-              </Link>
+              <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
             </li>
-            <li>
-              <Link to="/Inventario">
-                Inventario <i className="fas fa-box-open"></i>
-              </Link>
-            </li>
-          </ul>
+            </ul>
         </nav>
       </div>
     </>

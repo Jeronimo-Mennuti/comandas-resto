@@ -7,6 +7,7 @@ import "./Componentes-CSS/Productos.css";
 import "./Componentes-CSS/NuevoPedido.css";
 import "./Componentes-CSS/CardPedido.css";
 import "./Componentes-CSS/TituloComponentes.css";
+import "./Componentes-CSS/Categorias.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./Componentes-Registro/Login";
@@ -22,11 +23,11 @@ import EditarProducto from "./Componentes-Productos/EditarProducto";
 
 import Historial from "./Componentes-Historial/Historial";
 
-import Inventario from "./Componentes-Inventario/Inventario";
-import Proveedores from "./Componentes-Proveedores/Proveedores";
-import NuevoProveedor from "./Componentes-Proveedores/NuevoProveedor";
-import InventarioActual from "./Componentes-Inventario/InventarioActual";
-import ActualizarInventario from "./Componentes-Inventario/ActualizarInventario";
+
+import Categorias from "./Componentes-Categorias/Categorias";
+import NuevaCategoria from "./Componentes-Categorias/NuevaCategoria";
+
+
 
 
 
@@ -38,7 +39,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />}/>
           <Route path="/NewResto" element={<NewResto />}/>
-          <Route path="/Inventario" element={<Inventario />}/>
+          
           
           <Route path="/Pedidos" element={<Pedidos />}/>
           <Route path="/NuevoPedido" element={<NuevoPedido />} />
@@ -50,10 +51,10 @@ function App() {
 
           <Route path="/Historial" element={<Historial />}/>
           
-          <Route path="/Inventario/Proveedores" element={<Proveedores />}/>
-          <Route path="/NuevoProveedor" element={<NuevoProveedor />}/>
-          <Route path="/Inventario/InventarioActual" element={<InventarioActual />}/>
-          <Route path="/Inventario/ActualizarInventario" element={<ActualizarInventario />}/>
+          <Route path="/Categorias" element={<Categorias />}/>
+          <Route path="/NuevaCategoria" element={<NuevaCategoria />}/>
+          
+          
           
           
           

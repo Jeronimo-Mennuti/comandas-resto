@@ -18,13 +18,6 @@ function Pedidos() {
   const [isOpen, setIsOpen] = useState([]);
   const [productos, setProductos] = useState([]);
   const [productosSeleccionados, setProductosSeleccionados] = useState([]);
-  const [completedPedidos, setCompletedPedidos] = useState([]);
-
-  const handleCompletePedido = (pedidoId) => {
-    const completedPedido = pedidos.find(pedido => pedido.id === pedidoId);
-    setPedidos(pedidos.filter(pedido => pedido.id !== pedidoId));
-    setCompletedPedidos([...completedPedidos, completedPedido]);
-  };
 
 
   const handleToggleCollapse = (index) => {
@@ -99,7 +92,7 @@ function Pedidos() {
       setProductosSeleccionados(newProductosSeleccionados);
     };
 
-    
+
     return (
       <div className="container">
         <div className="card producto-card" key={producto.id}>
@@ -236,7 +229,7 @@ function Pedidos() {
 
               <div className="card-footer d-flex rounded-top justify-content-center">
                 <div className="d-flex botonesCard">
-                  
+
                   <button
                     onClick={() => eliminarPedidos(pedido.id)}
                     className="btn btn-danger boton-producto btn-md"
@@ -244,15 +237,15 @@ function Pedidos() {
                     <i className="fa-regular fa-circle-xmark"></i>
                   </button>
 
-                  
+
                   <button
                     className="btn btn-success boton-producto"
-                    onClick={() => handleCompletePedido(pedido.id)}
+
                   >
                     <i className="fas fa-check"></i>
                   </button>
-                
-                  
+
+
                   <Link to={`/EditarPedido/${pedido.id}`}>
                     <button className="btn btn-success boton-producto">
                       <i className="fas fa-edit"></i>
@@ -267,25 +260,14 @@ function Pedidos() {
         <div>
           <nav>
             <ul>
-              <li>
-                <Link to="/Pedidos">
-                  Pedidos <i className="fas fa-clipboard-list"></i>
-                </Link>
+              <li >
+                <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
               </li>
               <li>
-                <Link to="/Productos">
-                  Productos <i className="fas fa-shopping-bag"></i>
-                </Link>
+                <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
               </li>
               <li>
-                <Link to="/Historial">
-                  Historial <i className="fas fa-history"></i>
-                </Link>
-              </li>
-              <li>
-                <Link to="/Inventario">
-                  Inventario <i className="fas fa-box-open"></i>
-                </Link>
+                <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
               </li>
             </ul>
           </nav>
