@@ -1,5 +1,3 @@
-
-
 import "./App.css";
 import "./Componentes-CSS/Navbar.css";
 import "./Componentes-CSS/Botones.css";
@@ -8,6 +6,9 @@ import "./Componentes-CSS/NuevoPedido.css";
 import "./Componentes-CSS/CardPedido.css";
 import "./Componentes-CSS/TituloComponentes.css";
 import "./Componentes-CSS/Categorias.css";
+import "./Componentes-CSS/CardProductos.css";
+import "./Componentes-CSS/CardCategorias.css";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./Componentes-Registro/Login";
@@ -45,8 +46,8 @@ function App() {
           <Route path="/NuevoPedido" element={<NuevoPedido />} />
           <Route path="/EditarPedido/:id" element={<EditarPedido />}/>
           
-          <Route path="/Productos" element={<Productos />}/>
-          <Route path="/CrearProducto" element={<CrearProducto />}/>
+          <Route path="/Productos/:categorias" element={<Productos />}/>
+          <Route path="/CrearProducto/:categorias" element={<CrearProducto />}/>
           <Route path="/EditarProducto/:id" element={<EditarProducto />}/>
 
           <Route path="/Historial" element={<Historial />}/>

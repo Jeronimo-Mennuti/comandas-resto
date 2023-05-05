@@ -34,8 +34,6 @@
     }
   }
 
-
-
 .botonVolver {
   float: left;
   height: 50px;
@@ -44,7 +42,6 @@
 .buttonEliminarPedido{
     color:black;
 }
-
 
 .botonesCard  button {
     background-color: transparent;
@@ -79,11 +76,6 @@
 
  .numeroCantidad{
     font-size: 19px;
-  }
-
-  .headerProductos{
-    display:flex;
-    justify-content: space-between;
   }
 
 

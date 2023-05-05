@@ -1,0 +1,43 @@
+.categoriasContainer{
+   
+}
+
+.cardCategoriasContainer{
+padding: 25px;
+     
+}
+
+@media (min-width: 992px) {
+    .cardCategoriasContainer{
+        padding: 30px;
+}
+}
+
+
+.card-title{
+    text-decoration: none;
+    color: black;
+}
+
+.cardCategorias{
+    max-width: 2000px;
+    margin-bottom: 20px;
+    box-shadow: 1px 2px 4px black;
+    border-color: black;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom:30px;
+    padding: 11px;
+    background-color: rgb(3, 146, 103);
+}
+
+.cardCategorias .card-title {
+    text-decoration: none !important;
+    color: white;
+    align-content:start;
+  }
+
+  a {
+    text-decoration: none !important;
+    font-weight: bold !important;
+}

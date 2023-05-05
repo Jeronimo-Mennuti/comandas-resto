@@ -64,10 +64,6 @@ function EditarProducto({ onAgregarProducto }) {
     navigate("/productos");
   };
 
-  // const handleButton = () => {
-  //   navigate("/productos");
-  // };
-
   useEffect(() => {
     ProductById(id);
   }, []);

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { db } from '../ConfigFirebase/Firebase';
 import { collection, addDoc } from 'firebase/firestore';
-import { faCirclePlus, faMinusCircle,faCircleArrowLeft, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import {faCircleArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function CrearProducto({ onAgregarProducto }) {
@@ -11,6 +11,7 @@ function CrearProducto({ onAgregarProducto }) {
   const [precio, setPrecio] = useState('');
   const productosCollection = collection(db, 'productos')
   const navigate = useNavigate();
+  const {categorias} = useParams();
 
   const agregarProducto = async () => {
     if (nombre.trim() === '') {
@@ -22,6 +23,7 @@ function CrearProducto({ onAgregarProducto }) {
       nombre,
       descripcion,
       precio,
+      categorias,
     };
     try {
       const docRef = await addDoc(productosCollection, nuevoProducto);

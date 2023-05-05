@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { db } from "../ConfigFirebase/Firebase";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc, query, where } from "firebase/firestore";
 import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Productos() {
   const [productos, setProductos] = useState([]);
+  const { categorias } = useParams();
+  console.log(categorias)
 
   useEffect(() => {
     async function fetchProductos() {
       const productosCollection = collection(db, "productos");
-      const productosSnapshot = await getDocs(productosCollection);
+      const queryProductos = query(productosCollection, where("categorias", "==", categorias));
+      const productosSnapshot = await getDocs(queryProductos);
       const productosData = productosSnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -51,45 +54,39 @@ function Productos() {
             <FontAwesomeIcon className='botonVolver' icon={faCircleArrowLeft} size="lg" style={{ color: "#060709", }} />
           </Link>
         </div>
-        
+
         <div>
           <h1>Productos</h1>
         </div>
-        
+
         <div>
-          <Link to="/CrearProducto">
+          <Link to={`/CrearProducto/${categorias}`}>
             <button className="btn btn-primary buttonNuevoPedido">
               <i className="fas fa-plus"></i>
               Nuevo
             </button>
           </Link>
         </div>
-        </div>
+      </div>
       
-      <div className="productos-container">
+      <div className="CardProductosContainer">
         {productos.length > 0 && (
-          <div className="card-container">
+          <div className='cardProductos'>
             {productos.map((productos) => (
-              <div className="card producto-card" key={productos.id}>
+              <div className="card" key={productos.id}>
                 <div className="card-body">
-                  <h5 className="card-title text-center">{productos.nombre}</h5>
-                  <p className="card-description text-center">
-                    ({productos.descripcion})
-                  </p>
-                  <p className="card-price text-center">${productos.precio}</p>
-                  <div className="d-flex justify-content-between botonesCard">
-                  <Link to={`/EditarProducto/${productos.id}`}>
-                      <button className="btn btn-success boton-producto">
-                        <i className="fas fa-edit"></i>
-                      </button>
+                  <h5 className="CardProductosNombreProducto">{productos.nombre}</h5>
+                  <p className="cardProductosPrecio">${productos.precio}</p>
+                
+                  <div className="botonesCardProductos">
+                  
+                    <Link to={`/EditarProducto/${productos.id}`}>
+                      <i className="fas fa-edit botonEditarProducto"></i>
+
                     </Link>
-                    <button
-                      onClick={() => eliminarProducto(productos.id)}
-                      className="btn btn-danger boton-producto btn-md"
-                    >
-                      <i className="fa-regular fa-circle-xmark"></i>
-                    </button>
+                    <i className="fa-regular fa-circle-xmark botonEliminarProducto" onClick={() => eliminarProducto(productos.id)}></i>
                   </div>
+                  
                 </div>
               </div>
             ))}
@@ -109,7 +106,7 @@ function Productos() {
             <li>
               <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
             </li>
-            </ul>
+          </ul>
         </nav>
       </div>
     </>

@@ -24,10 +24,7 @@
     box-shadow: 0 0 0 2px #2b9af9;
   }
 
-  
-  
-  
-      .sugerencias-lista {
+  .sugerencias-lista {
     position: absolute;
   top: 50px; /* altura del input */
   left: 1%; /* margen izquierdo del input */

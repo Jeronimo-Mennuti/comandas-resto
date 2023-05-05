@@ -1,9 +1,3 @@
-//agregar botones al lado del nombre del producto dentro de la card de pedidos para saber si es comida o bebida y asi mandarlo a sus respectivos lugares
-//crear un historial de platos y bebidas vendidas.
-//en sugerencias para agregar productos agregar categorias
-//agregar input de categoria (bebida o comida)
-
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus, faTrash, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -94,50 +88,8 @@ function Pedidos() {
 
 
     return (
-      <div className="container">
-        <div className="card producto-card" key={producto.id}>
-          <div className="card-body">
-            <h5 className="card-title text-center">{producto.nombre}</h5>
-            <p className="card-description text-center">
-              ({producto.descripcion})
-            </p>
-
-            <p className="card-price text-center">${precioActualizado}</p>
-
-            <div className="d-flex align-items-center justify-content-between">
-              <div>
-                <FontAwesomeIcon
-                  icon={faCirclePlus}
-                  onClick={agregarProducto}
-                  size="2x"
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-
-              {cantidad > 0 && (
-                <div className="mx-2 numeroCantidad">{cantidad}</div>
-              )}
-
-              <div>
-                <FontAwesomeIcon
-                  icon={faMinusCircle}
-                  onClick={eliminarProducto}
-                  size="2x"
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-            </div>
-
-            <div className="trash-icon-container iconoTrash">
-              <FontAwesomeIcon
-                icon={faTrash}
-                onClick={eliminarProductoTrash}
-                size="xl"
-                style={{ cursor: "pointer" }}
-              />
-            </div>
-          </div>
-        </div>
+      <div>
+        
       </div>
     );
   };
@@ -196,11 +148,11 @@ function Pedidos() {
                 </div>
               </div>
 
-              <div className="card-body row" style={{ padding: "0" }}>
+              <div className="" style={{ padding: "0" }}>
                 <Collapse in={isOpen[index]}>
                   <div>
                     {pedido.productosSeleccionados && pedido.productosSeleccionados.length > 0 && (
-                      <div className="card-container">
+                      <div className="cardPedidosContainer">
                         {pedido.productosSeleccionados.map((productos) => (
                           <div className="card producto-card" key={productos.id}>
                             <div className="card-body">

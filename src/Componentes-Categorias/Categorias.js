@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { collection, getDocs } from "firebase/firestore";
 
 
-function Proveedores() {
+function Categorias() {
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
@@ -36,22 +36,18 @@ function Proveedores() {
         </div>
       </div>
 
-      <div className="categorias-container">
+      <div className="categoriasContainer">
         {categorias.length > 0 && (
-          <div className="card-container">
+          <div className="cardCategoriasContainer">
             {categorias.map((categorias) => (
-              <Link to="/Productos">
-                <div className="card producto-card" key={categorias.id}>
-                  <div className="card-body">
-                    <h5 className="card-title text-center">{categorias.nombre}</h5>
-                  </div>
+              <Link to={`/Productos/${categorias.nombre}`}>
+                <div className='cardCategorias' key={categorias.id}>
+                  <h5 className="card-title text-center">{categorias.nombre}</h5>
                 </div>
               </Link>
             ))}
           </div>
-
         )}
-
       </div>
 
 
@@ -67,11 +63,11 @@ function Proveedores() {
             <li>
               <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
             </li>
-            </ul>
+          </ul>
         </nav>
       </div>
     </>
   )
 }
 
-export default Proveedores
+export default Categorias;
