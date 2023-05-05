@@ -113,9 +113,9 @@ function Pedidos() {
       <div className="col">
         <div>
           <Link to="/NuevoPedido">
-            <button className="btn btn-primary buttonNuevoPedido">
+            <button className="btn btn-primary buttonNuevoPedido botonMas">
               <i className="fas fa-plus"></i>
-              Nuevo
+              
             </button>
           </Link>
         </div>

@@ -56,14 +56,14 @@ function Productos() {
         </div>
 
         <div>
-          <h1>Productos</h1>
+          <h1 className='tituloProductos'>Productos</h1>
         </div>
 
         <div>
           <Link to={`/CrearProducto/${categorias}`}>
-            <button className="btn btn-primary buttonNuevoPedido">
+            <button className="btn btn-primary buttonNuevoPedido botonMas">
               <i className="fas fa-plus"></i>
-              Nuevo
+              
             </button>
           </Link>
         </div>
@@ -93,6 +93,15 @@ function Productos() {
           </div>
         )}
       </div>
+
+      <div className="nuevoBotonContainer">
+  <Link to="/CrearProducto">
+    <button className="btn btn-primary buttonNuevoPedido cardCategorias botonNuevoProducto">
+      <i className="fas fa-plus"></i>
+       Nuevo Producto
+    </button>
+  </Link>
+</div>
       
       <div>
         <nav>

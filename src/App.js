@@ -4,7 +4,6 @@ import "./Componentes-CSS/Botones.css";
 import "./Componentes-CSS/Productos.css";
 import "./Componentes-CSS/NuevoPedido.css";
 import "./Componentes-CSS/CardPedido.css";
-import "./Componentes-CSS/TituloComponentes.css";
 import "./Componentes-CSS/Categorias.css";
 import "./Componentes-CSS/CardProductos.css";
 import "./Componentes-CSS/CardCategorias.css";

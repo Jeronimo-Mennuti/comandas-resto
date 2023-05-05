@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { db } from "../ConfigFirebase/Firebase";
 import { Link } from 'react-router-dom';
 import { collection, getDocs } from "firebase/firestore";
+import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 function Categorias() {
@@ -23,14 +25,19 @@ function Categorias() {
   return (
     <>
       <div className='headerProductos'>
+      <div>
+          <Link to="/Pedidos">
+            <FontAwesomeIcon className='botonVolver' icon={faCircleArrowLeft} size="lg" style={{ color: "#060709", }} />
+          </Link>
+        </div>
         <div>
-          <h1>Categorias</h1>
+          <h1 className='tituloCategorias'>Categorias</h1>
         </div>
         <div>
           <Link to="/NuevaCategoria">
-            <button className="btn btn-primary buttonNuevoPedido">
+            <button className="btn btn-primary buttonNuevoPedido botonMas">
               <i className="fas fa-plus"></i>
-              Nuevo
+              
             </button>
           </Link>
         </div>
@@ -42,7 +49,7 @@ function Categorias() {
             {categorias.map((categorias) => (
               <Link to={`/Productos/${categorias.nombre}`}>
                 <div className='cardCategorias' key={categorias.id}>
-                  <h5 className="card-title text-center">{categorias.nombre}</h5>
+                  <h5 className='cardCategoriasTitulo'>{categorias.nombre}</h5>
                 </div>
               </Link>
             ))}
@@ -50,6 +57,14 @@ function Categorias() {
         )}
       </div>
 
+      <div className="nuevoBotonContainer botonNuevaCategoria">
+  <Link to="/NuevaCategoria">
+    <button className="btn btn-primary buttonNuevoPedido cardCategorias">
+      <i className="fas fa-plus"></i>
+       Nueva categoria
+    </button>
+  </Link>
+</div>
 
       <div>
         <nav>

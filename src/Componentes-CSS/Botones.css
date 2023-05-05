@@ -3,52 +3,43 @@
   min-width: 50px; 
   font-size: 16px;
   float:right;
-  background-color: #000;
- }
-
- button.btn.btn-primary.buttonNuevoPedido {
-  background-color: #000;
-  color: #fff;
-  border-color:#000;
-  
- }
-
- button.btn.btn-primary.buttonNuevoPedido:hover {
-  background-color: #18181a;
-  color: #fff;
-  border-color:#18181a;
-  
- }
+  background-color: rgb(3, 146, 103) !important;
+  border-color: transparent !important;
+  height:45px;
+  width: 460px !important;
  
+ }
+
+ /* BOTON NUEVO PRODUCTO*/
+ .nuevoBotonContainer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 1;
+  left: 0;
+  right: 0;
+ }
+
+
+@media (min-width: 992px) {
+.nuevoBotonContainer {
+  padding: 70px;
   
-  @media (max-width: 768px) {
-    .buttonNuevoPedido {
-      font-size: 14px;
-     /* Alinear a la derecha en lugar de flotar */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .buttonNuevoPedido {
-      font-size: 12px;
-    }
-  }
+}
+}
 
 .botonVolver {
   float: left;
   height: 50px;
-}
-
-.buttonEliminarPedido{
-    color:black;
+  color: rgb(3, 146, 103) !important;
+ 
 }
 
 .botonesCard  button {
     background-color: transparent;
     color: #000000;
     border-color: #ffffff;
-    
-  }
+}
 
  @media (max-width: 1200px) {
     .d-flex.align-items-center {
@@ -78,4 +69,17 @@
     font-size: 19px;
   }
 
+  
+  
+.botonMas{
+  width: 30px !important;
+  box-shadow: 1px 2px 4px black;
+  border-color: black;
+  border-radius: 5px;
+  margin-right: 23px;
+  margin-top: 10px;
+}
 
+.botonNuevaCategoria{
+padding:70px;
+}
