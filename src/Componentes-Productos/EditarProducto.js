@@ -1,10 +1,15 @@
-import {collection, addDoc, doc, getDoc, updateDoc } from "firebase/firestore";
+//no me muestra los productos al volver atras en editar productos
+
+
+
+import { collection, addDoc, doc, getDoc, updateDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { db } from "../ConfigFirebase/Firebase";
 import { useNavigate, useParams } from "react-router-dom";
-import { faCirclePlus, faMinusCircle, faCircleArrowLeft, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 function EditarProducto({ onAgregarProducto }) {
   const { id } = useParams();
@@ -12,9 +17,12 @@ function EditarProducto({ onAgregarProducto }) {
   const [descripcion, setDescripcion] = useState("");
   const [precio, setPrecio] = useState("");
   const [nombre, setNombre] = useState("");
-  const productosCollection = collection(db, 'productos')
- 
-  
+  const productosCollection = collection(db, 'productos');
+
+
+
+
+
   const agregarProducto = async () => {
     if (nombre.trim() === '') {
       alert('Debe agregar un producto para continuar');
@@ -37,9 +45,9 @@ function EditarProducto({ onAgregarProducto }) {
     } catch (error) {
       console.error('Error al agregar el producto: ', error);
     }
-    
+
   };
-  
+
 
   const ProductById = async (id) => {
     const product = await getDoc(doc(db, "productos", id));
@@ -68,54 +76,81 @@ function EditarProducto({ onAgregarProducto }) {
     ProductById(id);
   }, []);
 
+
+
   return (
     <>
-    <div>
-          <Link to="/Productos">
-            <FontAwesomeIcon className='botonVolver' icon={faCircleArrowLeft} size="lg" style={{ color: "#060709", }} />
-          </Link>
-        </div>
-        <div>
-          <h1>
-            Editar Producto
-          </h1>
-        </div>
-    <div className='input'>
-        <input type='text' placeholder='Nombre' value={nombre} onChange={(e) => setNombre(e.target.value)}/>
+      <div>
+        <Link to={`/Productos/${id}`}>
+        <FontAwesomeIcon className='BotonVolver' icon={faCircleArrowLeft} size= "3x"/>
+        </Link>
+      </div>
+      <div >
+        <h1 className="TituloComponentes">
+          Editar Producto
+        </h1>
       </div>
       
-      <div className='input'>
-        <input type='text' placeholder='Descripcion' value={descripcion} onChange={(e) => setDescripcion(e.target.value)}/>
+      <div className='form-floating mb-3 input'>
+        <input 
+        type='text'
+        className="form-control"
+        id="floatingInput"
+        min="1" 
+        placeholder='Nombre' 
+        value={nombre} onChange={(e) => setNombre(e.target.value)} />
+        <label for="floatingInput">Nombre</label>
       </div>
-      
-      <div className='input'>
-        <input type='number' placeholder='Precio' value={precio} onChange={(e) => setPrecio(e.target.value)}/>
+
+      <div className='form-floating mb-3 input'>
+        <input 
+        type='text'
+        className="form-control"
+        id="floatingInput"
+        min="1" 
+        placeholder='Descripcion' 
+         value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
+         <label for="floatingInput">Descripcion</label>
       </div>
-      
-      <div className="botones">
-        <div className="boton-guardar-container">
+
+      <div className='form-floating mb-3 input'>
+        <input 
+        type='number'
+        className="form-control"
+        id="floatingInput"
+        min="1" 
+        placeholder='Precio' 
+        value={precio} onChange={(e) => setPrecio(e.target.value)} />
+        <label for="floatingInput">Precio</label>
+      </div>
+
+
+      <div className='FooterComponentes'>
+
+        <div className="BotonFooter">
           <Link to="/Productos">
             <button
-              className="btn btn-primary button buttonNuevoPedido"
+              className="btn btn-primary "
               onClick={agregarProducto}>Guardar</button>
           </Link>
         </div>
-      </div>
 
-      <div>
-        <nav>
-          <ul>
-            <li >
-              <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
-            </li>
-            <li>
-              <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
-            </li>
-            <li>
-              <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
-            </li>
+        <div>
+          <nav className='NavBar'>
+            <ul>
+              <li >
+                <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
+              </li>
+              <li>
+                <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
+              </li>
+              <li>
+                <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
+              </li>
             </ul>
-        </nav>
+          </nav>
+        </div>
+
       </div>
     </>
   );

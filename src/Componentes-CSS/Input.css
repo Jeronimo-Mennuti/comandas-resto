@@ -1,0 +1,63 @@
+.form-floating.input input[type="text"]#floatingInput {
+    padding: 32px 20px 5px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F2F2F2;
+    color: #4d4c4c;
+    box-shadow: none;
+  }
+  
+  .form-floating.input label[for="floatingInput"] {
+    font-size: 18px;
+    color: #4d4c4c;
+  }
+  
+  .form-floating.input input[type="text"]#floatingInput:focus {
+    outline: none;
+    border: none;
+    background-color: #F9F9F9;
+  }
+  
+  /* Estilos para el input de Descripcion */
+  .form-floating.input input[type="text"]#floatingInput:nth-of-type(2) {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F2F2F2;
+    color: #4d4c4c;
+    box-shadow: none;
+  }
+  
+  .form-floating.input label[for="floatingInput"]:nth-of-type(2) {
+    font-size: 18px;
+    color: #4d4c4c;
+  }
+  
+  .form-floating.input input[type="text"]#floatingInput:nth-of-type(2):focus {
+    outline: none;
+    border: none;
+    background-color: #F9F9F9;
+  }
+  
+  /* Estilos para el input de Precio */
+  .form-floating.input input[type="number"]#floatingInput:last-of-type {
+    padding: 32px 20px 5px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F2F2F2;
+    color: #4d4c4c;
+    box-shadow: none;
+}
+  
+  .form-floating.input label[for="floatingInput"]:last-of-type {
+    font-size: 18px;
+    color: #4d4c4c;
+}
+  
+  .form-floating.input input[type="number"]#floatingInput:last-of-type:focus {
+    outline: none;
+    border: none;
+    background-color: #F9F9F9;
+}
+  
+  

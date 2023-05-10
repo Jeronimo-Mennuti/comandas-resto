@@ -1,0 +1,34 @@
+.HeaderComponentes{
+height:7vh;
+}
+
+.BotonVolver {
+  color: rgb(9, 124, 90);
+}
+
+.BotonVolver:hover{
+  color: #076b4d !important;
+  transform: scale(1.05);
+}
+
+.BotonMas {
+  float: right;
+  background-color: rgb(9, 124, 90) !important;
+  box-shadow: 2px 2px black;
+  border: 2px solid rgb(9, 124, 90) !important;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s ease-in-out !important;
+  box-shadow: 2px 2px 4px black;
+}
+
+.BotonMas:hover {
+  background-color: #076b4d !important;
+  transform: scale(1.02);
+}
+
+.TituloComponentes{
+  text-align: center;
+  height:10vh;
+}
+

@@ -48,75 +48,78 @@ function Productos() {
   }
   return (
     <>
-      <div className='headerProductos'>
-        <div>
-          <Link to="/Categorias">
-            <FontAwesomeIcon className='botonVolver' icon={faCircleArrowLeft} size="lg" style={{ color: "#060709", }} />
-          </Link>
-        </div>
+      <div className='HeaderComponentes'>
 
-        <div>
-          <h1 className='tituloProductos'>Productos</h1>
-        </div>
+        <Link to="/Categorias">
+          <FontAwesomeIcon className='BotonVolver' icon={faCircleArrowLeft} size="3x" />
+        </Link>
 
-        <div>
-          <Link to={`/CrearProducto/${categorias}`}>
-            <button className="btn btn-primary buttonNuevoPedido botonMas">
-              <i className="fas fa-plus"></i>
-              
-            </button>
-          </Link>
-        </div>
+
+        <Link to={`/CrearProducto/${categorias}`}>
+          <button className="btn btn-primary BotonMas">
+            <i className="fas fa-plus"></i>
+          </button>
+        </Link>
       </div>
-      
-      <div className="CardProductosContainer">
-        {productos.length > 0 && (
-          <div className='cardProductos'>
-            {productos.map((productos) => (
-              <div className="card" key={productos.id}>
-                <div className="card-body">
-                  <h5 className="CardProductosNombreProducto">{productos.nombre}</h5>
-                  <p className="cardProductosPrecio">${productos.precio}</p>
-                
-                  <div className="botonesCardProductos">
-                  
-                    <Link to={`/EditarProducto/${productos.id}`}>
-                      <i className="fas fa-edit botonEditarProducto"></i>
 
-                    </Link>
-                    <i className="fa-regular fa-circle-xmark botonEliminarProducto" onClick={() => eliminarProducto(productos.id)}></i>
-                  </div>
-                  
+      <div>
+        <h1 className="TituloComponentes">Productos</h1>
+      </div>
+
+
+
+
+      <div className="">
+        {productos.length > 0 && (
+          <div className=''>
+            {productos.map((productos) => (
+              <div className="card mx-auto w-50 my-4" style={{ height: '75px'}} key={productos.id}>
+
+                <h5 className="" style={{ marginLeft: '8px' }}>{productos.nombre}</h5>
+                <p className="" style={{ marginLeft: '8px' }}>${productos.precio}</p>
+
+                <div className="position-absolute top-0 end-0">
+                  <Link to={`/EditarProducto/${productos.id}`}>
+                    <i className="fas fa-edit" style={{ color: 'black', marginRight: '8px' }}></i>
+
+                  </Link>
+                  <i className="fa-regular fa-circle-xmark" style={{ marginRight: '8px', cursor: 'pointer'}} onClick={() => eliminarProducto(productos.id)}></i>
                 </div>
+
               </div>
+
             ))}
           </div>
         )}
       </div>
 
-      <div className="nuevoBotonContainer">
-  <Link to="/CrearProducto">
-    <button className="btn btn-primary buttonNuevoPedido cardCategorias botonNuevoProducto">
-      <i className="fas fa-plus"></i>
-       Nuevo Producto
-    </button>
-  </Link>
-</div>
-      
-      <div>
-        <nav>
-          <ul>
-            <li >
-              <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
-            </li>
-            <li>
-              <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
-            </li>
-            <li>
-              <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
-            </li>
-          </ul>
-        </nav>
+      <div className='FooterComponentes'>
+
+        <div className="BotonFooter">
+          <Link to={`/CrearProducto/${categorias}`}>
+            <button className="btn btn-primary">
+              <i className="fas fa-plus"></i>
+              Nuevo Producto
+            </button>
+          </Link>
+        </div>
+
+        <div>
+          <nav className='NavBar'>
+            <ul>
+              <li >
+                <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
+              </li>
+              <li>
+                <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
+              </li>
+              <li>
+                <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
       </div>
     </>
   );

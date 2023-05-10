@@ -106,14 +106,14 @@ function NuevoPedido({ onAgregarPedido }) {
       setProductosSeleccionados(newProductosSeleccionados);
     };
 
-   
+
 
     return (
-      <div className="card producto-card" key={producto.id}>
-        <div className="card-body">
-        <div className="d-flex align-items-center Cantidad">
-            
-            <div className="ButtonCantidad">
+      <div className="" key={producto.id}>
+        <div className="">
+          <div className="">
+
+            <div className="">
               <FontAwesomeIcon
                 icon={faCirclePlus}
                 onClick={agregarProducto}
@@ -123,7 +123,7 @@ function NuevoPedido({ onAgregarPedido }) {
             </div>
 
             {cantidad > 0 && (
-              <div className="mx-2 numeroCantidad">{cantidad}</div>
+              <div className="mx-2">{cantidad}</div>
             )}
 
             <div>
@@ -135,17 +135,17 @@ function NuevoPedido({ onAgregarPedido }) {
               />
             </div>
           </div>
-          <h5 className="card-title text-center">{producto.nombre}</h5>
+          <h5 className="">{producto.nombre}</h5>
 
-          <p className="card-description text-center">
+          <p className="">
             ({producto.descripcion})
           </p>
 
-          <p className="card-price text-center">${precioActualizado}</p>
+          <p className="">${precioActualizado}</p>
 
-          
 
-          <div className="trash-icon-container">
+
+          <div className="">
             <FontAwesomeIcon
               icon={faTimesCircle}
               onClick={eliminarProductoTrash}
@@ -166,19 +166,15 @@ function NuevoPedido({ onAgregarPedido }) {
   return (
     <>
       <div>
-        <div>
+        
+      <div className='HeaderComponentes'>
           <Link to="/Pedidos">
-            <FontAwesomeIcon
-              className="botonVolver"
-              icon={faCircleArrowLeft}
-              size="lg"
-              style={{ color: "#060709" }}
-            />
+          <FontAwesomeIcon className='BotonVolver' icon={faCircleArrowLeft} size= "3x"/>
           </Link>
         </div>
 
-        <div className="tituloComponentes">
-          <h1>Nuevo Pedido</h1>
+        <div className="">
+          <h1 className='TituloComponentes'>Nuevo Pedido</h1>
         </div>
       </div>
 
@@ -199,35 +195,37 @@ function NuevoPedido({ onAgregarPedido }) {
         <input
           type="Number"
           className="form-control"
-          id="floatingPassword"
+          id="floatingInput"
           min="1"
           value={comensales}
           onChange={(e) => setComensales(e.target.value)}
           placeholder="Comensales"
         />
-        <label for="floatingPassword">Comensales</label>
+        <label for="floatingInput">Comensales</label>
       </div>
 
       <div className="form-floating mb-3 input">
         <input
           type="text"
           className="form-control"
-          id="floatingPassword"
+          id="floatingInput"
           value={nota}
           onChange={(e) => setNota(e.target.value)}
           placeholder="Agregar Nota"
         />
-        <label for="floatingPassword">Agregar Nota</label>
+        <label for="floatingInput">Agregar Nota</label>
       </div>
 
       <div className="form-floating mb-3 input">
         <input
           type="text"
+          className="form-control"
           placeholder="Agregar Producto"
-          id="floatingPassword"
+          id="floatingInput"
           onChange={handleInputChange}
           value={textoBusqueda}
         />
+        <label for="floatingInput">Agregar Producto</label>
         {sugerencias.length > 0 && (
           <ul className="sugerencias-lista">
             {sugerencias.map((sugerencia) => (
@@ -246,33 +244,35 @@ function NuevoPedido({ onAgregarPedido }) {
         {productosSeleccionados.map((producto) => renderizarProducto(producto))}
       </div>
 
-      <div className="botones">
-        <div className="boton-guardar-container">
+      <div className='FooterComponentes'>
+
+        <div className="BotonFooter">
           <Link to="/Pedidos">
             <button
-              className="btn btn-primary button buttonNuevoPedido"
+              className="btn btn-primary"
               onClick={handleGuardarPedido}
             >
               Guardar
             </button>
           </Link>
         </div>
-      </div>
 
-      <div>
-        <nav>
-          <ul>
-            <li >
-              <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
-            </li>
-            <li>
-              <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
-            </li>
-            <li>
-              <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
-            </li>
+        <div>
+          <nav className='NavBar'>
+            <ul>
+              <li >
+                <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
+              </li>
+              <li>
+                <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
+              </li>
+              <li>
+                <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
+              </li>
             </ul>
-        </nav>
+          </nav>
+        </div>
+
       </div>
     </>
   );

@@ -24,32 +24,30 @@ function Categorias() {
 
   return (
     <>
-      <div className='headerProductos'>
-      <div>
-          <Link to="/Pedidos">
-            <FontAwesomeIcon className='botonVolver' icon={faCircleArrowLeft} size="lg" style={{ color: "#060709", }} />
-          </Link>
-        </div>
-        <div>
-          <h1 className='tituloCategorias'>Categorias</h1>
-        </div>
-        <div>
-          <Link to="/NuevaCategoria">
-            <button className="btn btn-primary buttonNuevoPedido botonMas">
-              <i className="fas fa-plus"></i>
-              
-            </button>
-          </Link>
-        </div>
+      <div className='HeaderComponentes'>
+        
+        <Link to="/Pedidos">
+          <FontAwesomeIcon className='BotonVolver' icon={faCircleArrowLeft} size= "3x"/>
+        </Link>
+
+        <Link to="/NuevaCategoria">
+          <button className="btn btn-primary BotonMas">
+            <i className="fas fa-plus"></i>
+          </button>
+        </Link>
       </div>
 
-      <div className="categoriasContainer">
+      <div>
+        <h1 className='TituloComponentes'>Categorias</h1>
+      </div>
+
+      <div className="Categorias">
         {categorias.length > 0 && (
-          <div className="cardCategoriasContainer">
+          <div className="">
             {categorias.map((categorias) => (
               <Link to={`/Productos/${categorias.nombre}`}>
-                <div className='cardCategorias' key={categorias.id}>
-                  <h5 className='cardCategoriasTitulo'>{categorias.nombre}</h5>
+                <div className='' key={categorias.id}>
+                  <h5 className=''>{categorias.nombre}</h5>
                 </div>
               </Link>
             ))}
@@ -57,19 +55,20 @@ function Categorias() {
         )}
       </div>
 
-      <div className="nuevoBotonContainer botonNuevaCategoria">
-  <Link to="/NuevaCategoria">
-    <button className="btn btn-primary buttonNuevoPedido cardCategorias">
-      <i className="fas fa-plus"></i>
-       Nueva categoria
-    </button>
-  </Link>
-</div>
+      <div className='FooterComponentes'>
 
-      <div>
-        <nav>
+        <div className="BotonFooter">
+          <Link to="/NuevaCategoria">
+            <button className="btn btn-primary">
+              <i className="fas fa-plus"></i>
+              Nueva categoria
+            </button>
+          </Link>
+        </div>
+
+        <nav className='NavBar'>
           <ul>
-            <li >
+            <li>
               <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
             </li>
             <li>
@@ -80,7 +79,9 @@ function Categorias() {
             </li>
           </ul>
         </nav>
+
       </div>
+
     </>
   )
 }

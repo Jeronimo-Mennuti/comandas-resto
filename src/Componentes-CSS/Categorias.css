@@ -1,10 +1,30 @@
-.card-container{
-    cursor:pointer;
-    
+.Categorias {
+  text-align: center;
+  margin: 20px;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 10px;
+
 }
 
-.tituloCategorias{
-    font-size:30px;
-    margin-top:70px;
-    margin-left: 10px;
+.Categorias a {
+  display: block;
+  text-decoration: none;
+  background-color: rgb(9, 124, 90);
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.Categorias a:hover {
+  background-color: #076b4d !important;
+  transform: scale(1.05);
+  color: white;
+}
+
+.Categorias a:hover {
+  background-color: rgb(3, 86, 62);
 }

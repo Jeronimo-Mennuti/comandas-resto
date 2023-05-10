@@ -1,0 +1,75 @@
+.FooterComponentes {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
+.BotonFooter .btn {
+  margin-bottom: 10px;
+  background-color: rgb(9, 124, 90) !important;
+  box-shadow: 2px 2px black;
+  border: 2px solid rgb(9, 124, 90) !important;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s ease-in-out !important;
+  box-shadow: 2px 2px 4px black;
+
+}
+
+.BotonFooter .btn:hover {
+  background-color: #076b4d !important;
+  transform: scale(1.05);
+}
+
+.NavBar {
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.NavBar::before {
+  content: "";
+  position: absolute;
+  left: 2;
+  right: 0;
+  height: 1px;
+  background-color: black;
+}
+
+.NavBar ul {
+  list-style: none;
+  margin: 3px;
+  padding: 1;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid black;
+  /* Agregamos la línea aquí */
+}
+
+.NavBar li {
+  margin: 0 20px;
+}
+
+.NavBar li:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.NavBar a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.NavBar a:hover {
+  text-decoration: none;
+  color: black;
+}

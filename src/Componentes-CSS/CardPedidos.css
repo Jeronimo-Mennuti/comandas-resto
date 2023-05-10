@@ -1,0 +1,13 @@
+/*CARD PEDIDOS*/
+.btn-collapse {
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    transform: translateY(-40%);
+    
+}
+
+.card {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+

@@ -1,12 +1,13 @@
 import "./App.css";
-import "./Componentes-CSS/Navbar.css";
-import "./Componentes-CSS/Botones.css";
-import "./Componentes-CSS/Productos.css";
-import "./Componentes-CSS/NuevoPedido.css";
-import "./Componentes-CSS/CardPedido.css";
+import "./Componentes-CSS/Header.css";
+import "./Componentes-CSS/Footer.css";
+import "./Componentes-CSS/CardPedidos.css";
 import "./Componentes-CSS/Categorias.css";
-import "./Componentes-CSS/CardProductos.css";
-import "./Componentes-CSS/CardCategorias.css";
+import "./Componentes-CSS/Input.css";
+import "./Componentes-CSS/Productos.css";
+
+
+
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

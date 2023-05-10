@@ -106,14 +106,14 @@ function EditarPedido({ onActualizarPedido }) {
     };
 
     return (
-      <div className="card producto-card" key={producto.id}>
-        <div className="card-body">
-          <h5 className="card-title text-center">{producto.nombre}</h5>
+      <div className="" key={producto.id}>
+        <div className="">
+          <h5 className="">{producto.nombre}</h5>
 
-          <p className="card-price text-center">${precioActualizado}</p>
+          <p className="">${precioActualizado}</p>
 
-          <div className="d-flex align-items-center Cantidad">
-            <div className="ButtonCantidad">
+          <div className="">
+            <div className="d">
               <FontAwesomeIcon
                 icon={faCirclePlus}
                 onClick={agregarProducto}
@@ -134,7 +134,7 @@ function EditarPedido({ onActualizarPedido }) {
             </div>
           </div>
 
-          <div className="trash-icon-container">
+          <div className="">
             <FontAwesomeIcon
               icon={faTimesCircle}
               onClick={eliminarProductoTrash}
@@ -194,56 +194,65 @@ function EditarPedido({ onActualizarPedido }) {
 
   console.log("as", productos);
 
-  
-return (
+
+  return (
     <>
-      <div>
+      <div className='HeaderComponentes'>
         <Link to="/Pedidos">
-          <FontAwesomeIcon
-            className="botonVolver"
-            icon={faCircleArrowLeft}
-            size="lg"
-            style={{ color: "#060709" }}
-          />
+          <FontAwesomeIcon className='BotonVolver' icon={faCircleArrowLeft} size="3x" />
         </Link>
       </div>
+
       <div>
-        <h1>Datos del Pedido</h1>
-      </div>
-      <div className="input">
-        <input
-          type="number"
-          placeholder="Numero Mesa"
-          min="1"
-          value={numeroMesa}
-          onChange={(e) => setNumeroMesa(e.target.value)}
-        />
-      </div>
-      <div className="input">
-        <input
-          type="number"
-          placeholder="Comensales"
-          min="1"
-          value={comensales}
-          onChange={(e) => setComensales(e.target.value)}
-        />
-      </div>
-      <div className="input">
-        <input
-          type="text"
-          placeholder="Agregar Nota"
-          value={nota}
-          onChange={(e) => setNota(e.target.value)}
-        />
+        <h1 className='TituloComponentes'>Datos del Pedido</h1>
       </div>
 
-      <div className="input">
+      <div className="form-floating mb-3 input">
         <input
-          type="text"
+          type='number'
+          className="form-control"
+          id="floatingInput"
+          min="1"
+          placeholder="Numero Mesa"
+          value={numeroMesa}
+          onChange={(e) => setNumeroMesa(e.target.value)} />
+          <label for="floatingInput">Numero Mesa</label>
+      </div>
+
+      <div className="form-floating mb-3 input">
+        <input
+          type='number'
+          className="form-control"
+          id="floatingInput"
+          min="1"
+          placeholder="Comensales"
+          value={comensales}
+          onChange={(e) => setComensales(e.target.value)} />
+          <label for="floatingInput">Comensales</label>
+      </div>
+
+      <div className="form-floating mb-3 input">
+        <input
+          type='text'
+          className="form-control"
+          id="floatingInput"
+          min="1"
+          placeholder="Agregar Nota"
+          value={nota}
+          onChange={(e) => setNota(e.target.value)} />
+          <label for="floatingInput">Agregar Nota</label>
+      </div>
+
+      <div className="form-floating mb-3 input">
+        <input
+          type='text'
+          className="form-control"
+          id="floatingInput"
+          min="1"
           placeholder="Agregar Producto"
           onChange={handleInputChange}
-          value={textoBusqueda}
-        />
+          value={textoBusqueda} />
+          <label for="floatingInput">Agregar Producto</label>
         {sugerencias.length > 0 && (
           <ul className="sugerencias-lista">
             {sugerencias.map((sugerencia) => (
@@ -262,18 +271,18 @@ return (
         {productosSeleccionados.map((producto) => renderizarProducto(producto))}
       </div>
 
-      <div className="productos-container">
+      <div className="">
         {productos.length > 0 && (
-          <div className="card-container">
+          <div className="">
             {productos.map((productos) => (
-              <div className="card producto-card" key={productos.id}>
-                <div className="card-body">
-                  <div className="d-flex align-items-center Cantidad">
-                    
-                    <div className="ButtonCantidad">
+              <div className="" key={productos.id}>
+                <div className="">
+                  <div className="">
+
+                    <div className="">
                       <FontAwesomeIcon
                         icon={faCirclePlus}
-                      
+
                         size="xl"
                         style={{ cursor: "pointer" }}
                       />
@@ -290,17 +299,17 @@ return (
                       />
                     </div>
                   </div>
-                  <h5 className="card-title text-center">{productos.nombre}</h5>
+                  <h5 className="">{productos.nombre}</h5>
 
-                  <h4 className="card-price text-center">
+                  <h4 className="">
                     {productos.cantidad >= 1 ? '$' + productos.precio * productos.cantidad : '$' + productos.precio}
                   </h4>
 
 
 
 
-                  <div className="d-flex justify-content-between botonesCard">
-                    <div className="trash-icon-container">
+                  <div className="">
+                    <div className="">
                       <FontAwesomeIcon
                         icon={faTimesCircle}
                         size="xl"
@@ -321,34 +330,35 @@ return (
       </div>
 
 
+      <div className='FooterComponentes'>
 
-      <div className="botones">
-        <div className="boton-guardar-container">
+        <div className="BotonFooter">
           <Link to="/Pedidos">
             <button
-              className="btn btn-primary button buttonNuevoPedido"
+              className="btn btn-primary"
               onClick={update}
             >
               Guardar
             </button>
           </Link>
         </div>
-      </div>
 
-      <div>
-        <nav>
-          <ul>
-            <li >
-              <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
-            </li>
-            <li>
-              <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
-            </li>
-            <li>
-              <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
-            </li>
+        <div>
+          <nav className='NavBar'>
+            <ul>
+              <li >
+                <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
+              </li>
+              <li>
+                <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
+              </li>
+              <li>
+                <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
+              </li>
             </ul>
-        </nav>
+          </nav>
+        </div>
+
       </div>
     </>
   );
