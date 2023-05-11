@@ -18,12 +18,13 @@
   color: white;
   transition: background-color 0.3s ease-in-out !important;
   box-shadow: 2px 2px 4px black;
-
+  font-family: 'Montserrat', sans-serif;
 }
 
 .BotonFooter .btn:hover {
   background-color: #076b4d !important;
   transform: scale(1.05);
+ 
 }
 
 .NavBar {
@@ -67,6 +68,7 @@
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .NavBar a:hover {

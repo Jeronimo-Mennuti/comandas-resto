@@ -52,6 +52,7 @@
   .form-floating.input label[for="floatingInput"]:last-of-type {
     font-size: 18px;
     color: #4d4c4c;
+    font-family: 'Montserrat', sans-serif;
 }
   
   .form-floating.input input[type="number"]#floatingInput:last-of-type:focus {

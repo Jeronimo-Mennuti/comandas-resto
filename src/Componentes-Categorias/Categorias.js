@@ -43,7 +43,7 @@ function Categorias() {
 
       <div className="Categorias">
         {categorias.length > 0 && (
-          <div className="">
+          <div>
             {categorias.map((categorias) => (
               <Link to={`/Productos/${categorias.nombre}`}>
                 <div className='' key={categorias.id}>

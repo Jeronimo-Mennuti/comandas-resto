@@ -106,47 +106,26 @@ function EditarPedido({ onActualizarPedido }) {
     };
 
     return (
-      <div className="" key={producto.id}>
+
+      <div className="card mx-auto w-75 my-4" key={producto.id}>
+
+        <h5 className="">{producto.nombre}</h5>
+        <p className="">${precioActualizado}</p>
+
         <div className="">
-          <h5 className="">{producto.nombre}</h5>
-
-          <p className="">${precioActualizado}</p>
-
           <div className="">
-            <div className="d">
-              <FontAwesomeIcon
-                icon={faCirclePlus}
-                onClick={agregarProducto}
-                size="xl"
-                style={{ cursor: "pointer" }}
-              />
-            </div>
-
-            {cantidad > 0 && <div className="mx-2">{cantidad}</div>}
-
-            <div>
-              <FontAwesomeIcon
-                icon={faMinusCircle}
-                onClick={eliminarProducto}
-                size="xl"
-                style={{ cursor: "pointer" }}
-              />
-            </div>
+            <FontAwesomeIcon icon={faCirclePlus} onClick={agregarProducto} size="xl" style={{ cursor: "pointer" }} />
           </div>
 
-          <div className="">
-            <FontAwesomeIcon
-              icon={faTimesCircle}
-              onClick={eliminarProductoTrash}
-              size="xl"
-              style={{
-                cursor: "pointer",
-                position: "absolute",
-                top: 10,
-                right: 15,
-              }}
-            />
+          {cantidad > 0 && <div className="mx-2">{cantidad}</div>}
+
+          <div>
+            <FontAwesomeIcon icon={faMinusCircle} onClick={eliminarProducto} size="xl" style={{ cursor: "pointer" }} />
           </div>
+        </div>
+
+        <div className="">
+          <FontAwesomeIcon icon={faTimesCircle} onClick={eliminarProductoTrash} size="xl" style={{ cursor: "pointer", position: "absolute", top: 10, right: 15, }} />
         </div>
       </div>
     );
@@ -216,7 +195,7 @@ function EditarPedido({ onActualizarPedido }) {
           placeholder="Numero Mesa"
           value={numeroMesa}
           onChange={(e) => setNumeroMesa(e.target.value)} />
-          <label for="floatingInput">Numero Mesa</label>
+        <label for="floatingInput">Numero Mesa</label>
       </div>
 
       <div className="form-floating mb-3 input">
@@ -228,7 +207,7 @@ function EditarPedido({ onActualizarPedido }) {
           placeholder="Comensales"
           value={comensales}
           onChange={(e) => setComensales(e.target.value)} />
-          <label for="floatingInput">Comensales</label>
+        <label for="floatingInput">Comensales</label>
       </div>
 
       <div className="form-floating mb-3 input">
@@ -240,7 +219,7 @@ function EditarPedido({ onActualizarPedido }) {
           placeholder="Agregar Nota"
           value={nota}
           onChange={(e) => setNota(e.target.value)} />
-          <label for="floatingInput">Agregar Nota</label>
+        <label for="floatingInput">Agregar Nota</label>
       </div>
 
       <div className="form-floating mb-3 input">
@@ -252,7 +231,8 @@ function EditarPedido({ onActualizarPedido }) {
           placeholder="Agregar Producto"
           onChange={handleInputChange}
           value={textoBusqueda} />
-          <label for="floatingInput">Agregar Producto</label>
+        <label for="floatingInput">Agregar Producto</label>
+
         {sugerencias.length > 0 && (
           <ul className="sugerencias-lista">
             {sugerencias.map((sugerencia) => (
@@ -271,57 +251,33 @@ function EditarPedido({ onActualizarPedido }) {
         {productosSeleccionados.map((producto) => renderizarProducto(producto))}
       </div>
 
-      <div className="">
+      <div className="card mx-auto w-75 my-4" style={{ height: '100px' }}>
         {productos.length > 0 && (
           <div className="">
-            {productos.map((productos) => (
-              <div className="" key={productos.id}>
-                <div className="">
-                  <div className="">
-
-                    <div className="">
-                      <FontAwesomeIcon
-                        icon={faCirclePlus}
-
-                        size="xl"
-                        style={{ cursor: "pointer" }}
-                      />
-                    </div>
-                    <div><h5>{productos.cantidad > 0 ? productos.cantidad : "1"}</h5></div>
-                    <div className="mx-2"></div>
-
-                    <div>
-                      <FontAwesomeIcon
-                        icon={faMinusCircle}
-
-                        size="xl"
-                        style={{ cursor: "pointer" }}
-                      />
-                    </div>
-                  </div>
-                  <h5 className="">{productos.nombre}</h5>
-
-                  <h4 className="">
-                    {productos.cantidad >= 1 ? '$' + productos.precio * productos.cantidad : '$' + productos.precio}
-                  </h4>
+            {productos.map((producto) => (
+              <div  key={producto.id}>
 
 
+                <h5 className="">{producto.nombre} </h5>
 
+                <p className="">
+                  {producto.cantidad >= 1 ? '$' + producto.precio * producto.cantidad : '$' + producto.precio}
+                </p>
 
-                  <div className="">
-                    <div className="">
-                      <FontAwesomeIcon
-                        icon={faTimesCircle}
-                        size="xl"
-                        style={{
-                          cursor: "pointer",
-                          position: "absolute",
-                          top: 10,
-                          right: 15,
-                        }}
-                      />
-                    </div>
-                  </div>
+                <div style={{ display: "inline-block"}}>
+                  <FontAwesomeIcon icon={faMinusCircle} size="md" style={{ cursor: "pointer" }} />
+                </div>
+
+                <div style={{ display: "inline-block"}}>
+                  <h6>{producto.cantidad > 0 ? producto.cantidad : "1"}</h6>
+                </div>
+
+                <div style={{ display: "inline-block"}}>
+                  <FontAwesomeIcon icon={faCirclePlus} size="md" style={{ cursor: "pointer" }} />
+                </div>
+                
+                <div>
+                  <FontAwesomeIcon icon={faTimesCircle} size="md" style={{ cursor: "pointer", position: "absolute", top: 10, right: 13, }} />
                 </div>
               </div>
             ))}
@@ -358,7 +314,6 @@ function EditarPedido({ onActualizarPedido }) {
             </ul>
           </nav>
         </div>
-
       </div>
     </>
   );

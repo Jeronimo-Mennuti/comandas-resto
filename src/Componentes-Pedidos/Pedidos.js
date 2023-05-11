@@ -119,132 +119,104 @@ function Pedidos() {
         <h1 className="TituloComponentes">Pedidos</h1>
       </div>
 
+      {pedidos.map((pedido, index) => (
+        <div className="card mx-auto w-75 my-3 " key={pedido.id}>
+          <div className="card-header">
 
-      
-
-        {pedidos.map((pedido, index) => (
-          <div className="card mx-auto w-75 my-4 " key={pedido.id}>
-            <div className="card-header">
-              <h3 className="card-title d-flex justify-content-center">
+            <div className='d-flex mx-auto my-1 '>
+              <h4 className="card-title d-flex justify-content-center">
                 Mesa {pedido.numeroMesa}
-              </h3>
-              <button
-                className="btn btn-link btn-collapse"
-                data-parent="#accordion"
-                data-toggle="collapse"
-                role="button"
-                data-target={`#info-${pedido.id}`}
-                aria-expanded={isOpen[index]}
-                aria-controls={`info-${pedido.id}`}
-                data-delay="1000"
-                data-interval="500"
-                onClick={() => handleToggleCollapse(index)}
-              >
-                <i className="fas fa-chevron-down"></i>
-              </button>
+              </h4>
+              <h5 className='card-title cardTotal'> (${calcularTotal(pedido.productosSeleccionados)})</h5>
             </div>
 
-            <div id={`info-${pedido.id}`} className={`collapse ${isOpen[index] ? "show" : ""}`}>
-              {pedido.productosSeleccionados && pedido.productosSeleccionados.length > 0 && (
-                <div className="card-body">
-                  {pedido.productosSeleccionados.map((productos) => (
-                    <div className="row" key={productos.id}>
-                      <div className="col-3">
-                        <div><h5>{productos.cantidad > 0 ? productos.cantidad : "1"}</h5></div>
-                      </div>
-                      <div className="col-3">
-                        <p className="card-text">
-                          {productos.nombre}
-                        </p>
-                      </div>
-                      <div className="col-3">
-                        <h4 className="card-text">
-                          {productos.cantidad >= 1 ? '$' + productos.precio * productos.cantidad : '$' + productos.precio}
-                        </h4>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-
-
-              <div className="card-text mb-3">
-                <div className="row">
-                  <div className="row">
-                    <div className="card-text">comensales: {pedido.comensales}</div>
-                  </div>
-                  <div className="row">
-                    <div className="card-text">Nota: {pedido.nota}.</div>
-                  </div>
-                  <div className="row">
-                    <div className="card-text">Total del pedido: ${calcularTotal(pedido.productosSeleccionados)}</div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div className="card-footer d-flex justify-content-center">
-              <button
-                onClick={() => eliminarPedidos(pedido.id)}
-                className="btn btn-danger btn-md"
-              >
-                <i className="fa-regular fa-circle-xmark"></i>
-              </button>
-
-              <button
-                className="btn btn-success">
-                <i className="fas fa-check"></i>
-              </button>
-
-              <Link to={`/EditarPedido/${pedido.id}`}>
-                <button className="btn btn-success">
-                  <i className="fas fa-edit"></i>
-                </button>
-              </Link>
-            </div>
+            <button
+              className="btn btn-link btn-collapse"
+              data-parent="#accordion"
+              data-toggle="collapse"
+              role="button"
+              data-target={`#info-${pedido.id}`}
+              aria-expanded={isOpen[index]}
+              aria-controls={`info-${pedido.id}`}
+              data-delay="1000"
+              data-interval="1000"
+              onClick={() => handleToggleCollapse(index)}>
+              <i className="fas fa-chevron-down"></i>
+            </button>
           </div>
-        ))}
+
+          <div id={`info-${pedido.id}`} className={`collapse ${isOpen[index] ? "show" : ""}`}>
+            {pedido.productosSeleccionados && pedido.productosSeleccionados.length > 0 && (
+              <div className="card-body">
+                {pedido.productosSeleccionados.map((productos) => (
+                  <div className="card mx-auto w-100 my-2 row" key={productos.id}>
+
+                    <div className="d-flex">
+                      <h5>{productos.cantidad > 0 ? productos.cantidad : "1"}</h5>
+                      <h5 style={{ marginLeft: '20px' }}>{productos.nombre}</h5>
+                    </div>
+
+                    <p style={{ marginLeft: '27px' }}>
+                      {productos.cantidad >= 1 ? '$' + productos.precio * productos.cantidad : '$' + productos.precio}
+                    </p>
+
+                  </div>
+                ))}
+              </div>
+            )}
 
 
 
 
 
-
-
-
-
-
-        <div className='FooterComponentes'>
-
-          <div className="BotonFooter">
-            <Link to="/NuevoPedido">
-              <button className="btn btn-primary">
-                <i className="fas fa-plus"></i>
-                Nuevo Pedido
-              </button>
+          </div>
+          <div className="card-footer d-flex justify-content-center">
+            <i onClick={() => eliminarPedidos(pedido.id)} className="fa-regular fa-circle-xmark" style={{ color: 'white', marginRight: '8px', marginTop: '5px' }}></i>
+            <Link to={`/EditarPedido/${pedido.id}`}>
+              <i className="fas fa-edit" style={{ color: 'white', marginRight: '8px' }}></i>
             </Link>
           </div>
+        </div>
+      ))}
 
-          <div>
-            <nav className='NavBar'>
-              <ul>
-                <li>
-                  <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
-                </li>
-                <li>
-                  <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
-                </li>
-                <li>
-                  <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
+
+
+
+
+
+
+
+
+
+      <div className='FooterComponentes'>
+
+        <div className="BotonFooter">
+          <Link to="/NuevoPedido">
+            <button className="btn btn-primary">
+              <i className="fas fa-plus"></i>
+             Nuevo Pedido
+            </button>
+          </Link>
         </div>
 
-      
+        <div>
+          <nav className='NavBar'>
+            <ul>
+              <li>
+                <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
+              </li>
+              <li>
+                <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
+              </li>
+              <li>
+                <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+
     </>
   );
 }
