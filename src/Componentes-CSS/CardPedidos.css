@@ -19,11 +19,11 @@
 }
 
 .card-header {
-  background-color: rgb(130, 214, 3) !important;
+  background-color: rgb(118, 196, 2) !important;
 }
 
 .card-footer {
-  background-color: rgb(130, 214, 3) !important;
+  background-color: rgb(118, 196, 2) !important;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -37,6 +37,58 @@
   margin-left: 10px;
 }
 
-i {
+/*i {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
+}*/
+
+.numeroCantidad{
+  float:right;
+  font-weight: bold;
+  margin-top:25px;
+  margin-right:40px;
+  height:5px;
+}
+
+.nombreProducto{
+  float:left;
+  font-weight: bold;
+  margin-top:8px;
+}
+
+.precioProducto{
+  display:flex;
+  float:left;
+  margin-right: 13px;
+  
+}
+
+.botonEliminarProducto{
+  justify-content: flex-end;
+  display:flex;
+  color: 'black';
+  margin-right: '8px'; 
+  margin-top: '5px';
+  float:right !important;
+  bottom: 20px;
+}
+
+.nombreYCantidad{
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: center;
+}
+
+
+.botonMenosCard{
+margin-right:15px;
+margin-top:10px;
+}
+
+.botonMasCard{
+margin-top:10px;
+}
+
+.botonesCantidad{
+  align-items: flex-end;
+  
 }

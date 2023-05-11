@@ -24,6 +24,16 @@ function EditarPedido({ onActualizarPedido }) {
   const [productosSeleccionados, setProductosSeleccionados] = useState([]);
   const [numeroMesa, setNumeroMesa] = useState("");
   const pedidosCollection = collection(db, "pedidos");
+  const [pedidos, setPedidos] = useState([]);
+  const [isOpen, setIsOpen] = useState([]);
+
+  const handleToggleCollapse = (index) => {
+    setIsOpen((prevState) => {
+      const newState = { ...prevState };
+      newState[index] = !newState[index];
+      return newState;
+    });
+  };
 
   const handleGuardarPedido = async (pedidoId, pedidoSeleccionado) => {
     setNumeroMesa(pedidoSeleccionado.numeroMesa);
@@ -104,6 +114,8 @@ function EditarPedido({ onActualizarPedido }) {
       );
       setProductosSeleccionados(newProductosSeleccionados);
     };
+
+
 
     return (
 
@@ -251,39 +263,61 @@ function EditarPedido({ onActualizarPedido }) {
         {productosSeleccionados.map((producto) => renderizarProducto(producto))}
       </div>
 
-      <div className="card mx-auto w-75 my-4" style={{ height: '100px' }}>
+
+
+      <div className="card mx-auto w-75 my-3 cardCompleta" key={pedidos.id}>
+        <div className="card-header">
+
+          <div className='d-flex mx-auto my-1 '>
+            <h4 className="card-title d-flex justify-content-center">
+              Mesa {pedidos.numeroMesa}
+            </h4>
+          </div>
+
+          <button
+            className="btn btn-link btn-collapse"
+            data-parent="#accordion"
+            data-toggle="collapse"
+            role="button"
+            data-delay="1000"
+            data-interval="1000"
+            onClick={() => handleToggleCollapse()}>
+            <i className="fas fa-chevron-down"></i>
+          </button>
+        </div>
+
+
         {productos.length > 0 && (
-          <div className="">
+          <div className="card-body">
             {productos.map((producto) => (
-              <div  key={producto.id}>
+              <div className="card mx-auto w-100 my-2 row" key={producto.id}>
+                
+                <i className="fa-regular fa-circle-xmark botonEliminarProducto"></i>
+                <div className='d-flex nombreYCantidad'>
+                <h5 className="nombreProducto">{producto.nombre} </h5>
 
-
-                <h5 className="">{producto.nombre} </h5>
-
-                <p className="">
-                  {producto.cantidad >= 1 ? '$' + producto.precio * producto.cantidad : '$' + producto.precio}
-                </p>
-
-                <div style={{ display: "inline-block"}}>
-                  <FontAwesomeIcon icon={faMinusCircle} size="md" style={{ cursor: "pointer" }} />
+                 <div className='d-flex botonesCantidad'> 
+                <i class="bi bi-dash-square botonMenosCard" style={{ cursor: "pointer" }}></i>
+                <div className='precioProducto'>
+                <h5 className=''>{producto.cantidad > 0 ? producto.cantidad : "1"}</h5>
                 </div>
-
-                <div style={{ display: "inline-block"}}>
-                  <h6>{producto.cantidad > 0 ? producto.cantidad : "1"}</h6>
-                </div>
-
-                <div style={{ display: "inline-block"}}>
-                  <FontAwesomeIcon icon={faCirclePlus} size="md" style={{ cursor: "pointer" }} />
+                <i class="bi bi-plus-square botonMasCard" style={{ cursor: "pointer" }}></i>
                 </div>
                 
-                <div>
-                  <FontAwesomeIcon icon={faTimesCircle} size="md" style={{ cursor: "pointer", position: "absolute", top: 10, right: 13, }} />
                 </div>
+                
+                <p className="numeroCantidad">
+                    {producto.cantidad >= 1 ? '$' + producto.precio * producto.cantidad : '$' + producto.precio}
+                  </p>
+
               </div>
             ))}
           </div>
         )}
-      </div>
+      
+      <div className="card-footer d-flex justify-content-center"/>
+            
+</div>
 
 
       <div className='FooterComponentes'>

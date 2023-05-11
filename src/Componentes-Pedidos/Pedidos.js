@@ -3,7 +3,7 @@ import { faCirclePlus, faTrash, faMinusCircle, faCircleArrowLeft } from "@fortaw
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { db } from "../ConfigFirebase/Firebase";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc, getDoc } from "firebase/firestore";
 import { Collapse } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -12,6 +12,9 @@ function Pedidos() {
   const [isOpen, setIsOpen] = useState([]);
   const [productos, setProductos] = useState([]);
   const [productosSeleccionados, setProductosSeleccionados] = useState([]);
+  const [nota, setNota] = useState("");
+  const [comensales, setComensales] = useState("");
+  const [numeroMesa, setNumeroMesa] = useState("");
 
 
   const handleToggleCollapse = (index) => {
@@ -22,7 +25,7 @@ function Pedidos() {
     });
   };
 
-  useEffect(() => {
+   useEffect(() => {
     async function fetchPedidos() {
       const pedidosCollection = collection(db, "pedidos");
       const pedidosSnapshot = await getDocs(pedidosCollection);
@@ -120,7 +123,7 @@ function Pedidos() {
       </div>
 
       {pedidos.map((pedido, index) => (
-        <div className="card mx-auto w-75 my-3 " key={pedido.id}>
+        <div className="card mx-auto w-75 my-3 cardCompleta" key={pedido.id}>
           <div className="card-header">
 
             <div className='d-flex mx-auto my-1 '>
@@ -149,14 +152,14 @@ function Pedidos() {
             {pedido.productosSeleccionados && pedido.productosSeleccionados.length > 0 && (
               <div className="card-body">
                 {pedido.productosSeleccionados.map((productos) => (
-                  <div className="card mx-auto w-100 my-2 row" key={productos.id}>
+                  <div className="card mx-auto w-100 my-2 row " key={productos.id}>
 
-                    <div className="d-flex">
-                      <h5>{productos.cantidad > 0 ? productos.cantidad : "1"}</h5>
-                      <h5 style={{ marginLeft: '20px' }}>{productos.nombre}</h5>
+                    <div>
+                      <h5 className='numeroCantidad'>{productos.cantidad > 0 ? productos.cantidad : "1"}</h5>
+                      <h5 className='nombreProducto'>{productos.nombre}</h5>
                     </div>
 
-                    <p style={{ marginLeft: '27px' }}>
+                    <p className='precioProducto'>
                       {productos.cantidad >= 1 ? '$' + productos.precio * productos.cantidad : '$' + productos.precio}
                     </p>
 
@@ -164,12 +167,8 @@ function Pedidos() {
                 ))}
               </div>
             )}
-
-
-
-
-
-          </div>
+            </div>
+          
           <div className="card-footer d-flex justify-content-center">
             <i onClick={() => eliminarPedidos(pedido.id)} className="fa-regular fa-circle-xmark" style={{ color: 'white', marginRight: '8px', marginTop: '5px' }}></i>
             <Link to={`/EditarPedido/${pedido.id}`}>
@@ -178,16 +177,7 @@ function Pedidos() {
           </div>
         </div>
       ))}
-
-
-
-
-
-
-
-
-
-
+      
       <div className='FooterComponentes'>
 
         <div className="BotonFooter">
