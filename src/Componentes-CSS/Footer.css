@@ -31,7 +31,7 @@
   background-color: #ffffff;
   padding: 20px;
   text-align: center;
-
+ 
 }
 
 .NavBar::before {
@@ -41,6 +41,7 @@
   right: 0;
   height: 1px;
   background-color: black;
+  
 }
 
 .NavBar ul {
@@ -75,3 +76,16 @@
   text-decoration: none;
   color: black;
 }
+
+.NavBarLogin{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  /* Agrega el ancho que desees */
+  width: 80%;
+  max-width: 500px; /* Ejemplo de ancho máximo */
+  
+}
+

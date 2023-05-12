@@ -5,6 +5,7 @@ import "./Componentes-CSS/CardPedidos.css";
 import "./Componentes-CSS/Categorias.css";
 import "./Componentes-CSS/Input.css";
 import "./Componentes-CSS/Productos.css";
+import "./Componentes-CSS/Login.css";
 
 
 
@@ -12,7 +13,7 @@ import "./Componentes-CSS/Productos.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./Componentes-Registro/Login";
-import NewResto from "./Componentes-Registro/NewResto";
+
 
 import Pedidos from "./Componentes-Pedidos/Pedidos";
 import NuevoPedido from "./Componentes-Pedidos/NuevoPedido";
@@ -39,8 +40,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />}/>
-          <Route path="/NewResto" element={<NewResto />}/>
-          
           
           <Route path="/Pedidos" element={<Pedidos />}/>
           <Route path="/NuevoPedido" element={<NuevoPedido />} />
