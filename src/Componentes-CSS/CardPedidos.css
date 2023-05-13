@@ -15,16 +15,19 @@
 
 .collapse {
   transition: height 0.5s ease-out;
-
+  background-color: rgb(221, 221, 221);
+  
 }
 
 .card-header {
-  background-color: rgb(118, 196, 2) !important;
+  background-color: rgb(83, 173, 8) !important;
+  border-color: rgb(83, 173, 8) !important;
 }
 
 .card-footer {
-  background-color: rgb(118, 196, 2) !important;
+  background-color: rgb(83, 173, 8) !important;
   font-family: 'Montserrat', sans-serif;
+  
 }
 
 .card-title {
@@ -35,11 +38,8 @@
 
 .cardTotal {
   margin-left: 10px;
+  
 }
-
-/*i {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
-}*/
 
 .numeroCantidad{
   float:right;

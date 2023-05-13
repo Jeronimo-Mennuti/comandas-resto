@@ -4,7 +4,7 @@
     border-radius: 5px;
     background-color: #F2F2F2;
     color: #4d4c4c;
-    box-shadow: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
   
   .form-floating.input label[for="floatingInput"] {
@@ -25,7 +25,7 @@
     border-radius: 5px;
     background-color: #F2F2F2;
     color: #4d4c4c;
-    box-shadow: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
   
   .form-floating.input label[for="floatingInput"]:nth-of-type(2) {
@@ -46,7 +46,7 @@
     border-radius: 5px;
     background-color: #F2F2F2;
     color: #4d4c4c;
-    box-shadow: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
   
   .form-floating.input label[for="floatingInput"]:last-of-type {

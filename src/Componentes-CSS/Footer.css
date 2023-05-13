@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: transparent;
 }
 
 .BotonFooter .btn {
@@ -28,7 +28,7 @@
 }
 
 .NavBar {
-  background-color: #ffffff;
+  background-color: transparent;
   padding: 20px;
   text-align: center;
  
@@ -83,9 +83,8 @@
   left: 50%;
   transform: translateX(-50%);
   background-color: transparent;
-  /* Agrega el ancho que desees */
   width: 80%;
-  max-width: 500px; /* Ejemplo de ancho máximo */
+  max-width: 500px; 
   
 }
 

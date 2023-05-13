@@ -1,4 +1,4 @@
-.body-componente {
+body {
     background-image: url(/public/fondo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -6,3 +6,75 @@
     height: 100vh;
   }
  
+
+ .btn-outline-primary.bg-facebook {
+    background-color: #0962c9; /* el color de Facebook */
+  }
+  
+  .btn-outline-dark.text-white {
+    background-color: black;
+  }
+  
+  .btn.border-light {
+    border-color: #D3D3D3; /* gris claro */
+  }
+
+  .btn-google {
+    border-color: #d9d9d9; /* Cambiar aquí el color del borde a tu tono de gris deseado */
+  }
+
+  .btn:not(:disabled):not(.disabled):active:focus, .btn:not(:disabled):not(.disabled).active:focus,
+.btn.focus, .btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.btn-google:hover {
+  background-color: transparent;
+}
+
+.iconoGoogle{
+  margin-bottom:5px;
+}
+
+.my-button {
+  height: 53px;
+}
+
+.cardInicioSesion {
+  font-family: 'Roboto', sans-serif;
+}
+
+.input-group-append {
+  float: right;
+}
+
+.logoContainer{
+  margin-bottom:50px;
+}
+.subtituloLogin{
+  text-decoration: none;
+}
+
+
+.logoInicio{
+  float: left; 
+  margin-right: 10px; 
+  width: 55px;
+}
+
+.tituloLogo{
+font-size: 30px; 
+margin-bottom:1px;
+font-family: 'Roboto', sans-serif;
+}
+
+.subtLogo{
+  font-family: 'Roboto', sans-serif;
+
+}
