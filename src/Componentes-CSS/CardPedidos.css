@@ -41,14 +41,6 @@
   
 }
 
-.numeroCantidad{
-  float:right;
-  font-weight: bold;
-  margin-top:25px;
-  margin-right:40px;
-  height:5px;
-}
-
 .nombreProducto{
   float:left;
   font-weight: bold;
@@ -67,28 +59,16 @@
   display:flex;
   color: 'black';
   margin-right: '8px'; 
-  margin-top: '7px';
+  margin-top: '10px';
   float:right !important;
   bottom: 20px;
 }
 
-.nombreYCantidad{
-  justify-content: space-between;
-  align-content: space-between;
-  align-items: center;
+.numeroCantidad{
+  font-size: 16px;
 }
 
-
-.botonMenosCard{
-margin-right:15px;
-margin-top:10px;
-}
-
-.botonMasCard{
-margin-top:10px;
-}
-
-.botonesCantidad{
-  align-items: flex-end;
-  
+.sugerencia-card{
+margin:5px;
+cursor:pointer;
 }

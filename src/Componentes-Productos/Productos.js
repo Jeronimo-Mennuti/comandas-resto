@@ -73,7 +73,7 @@ function Productos() {
         {productos.length > 0 && (
           <div className=''>
             {productos.map((productos) => (
-              <div className="card mx-auto w-50 my-4" style={{ height: '78px'}} key={productos.id}>
+              <div className="card mx-auto w-75 my-2" style={{ height: '78px'}} key={productos.id}>
 
                 <h6  style={{ marginLeft: '8px',marginTop: '10px', fontWeight:'bold' }}>{productos.nombre}</h6>
                 <p  style={{ marginLeft: '8px' }}>${productos.precio}</p>

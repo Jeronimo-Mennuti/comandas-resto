@@ -17,6 +17,21 @@ function Pedidos() {
   const [numeroMesa, setNumeroMesa] = useState("");
 
 
+  function calcularTotal(productosSeleccionados) {
+    let total = 0;
+    productosSeleccionados.forEach((producto) => {
+      console.log(producto.cantidad);
+      const cantidad = parseInt(producto.cantidad) || 1;
+      const precio = parseFloat(producto.precio);
+      console.log(cantidad, precio);
+      if (!isNaN(cantidad) && !isNaN(precio)) {
+        total += precio * cantidad;
+      }
+    });
+    console.log(total);
+    return total.toFixed(0);
+  }
+
   const handleToggleCollapse = (index) => {
     setIsOpen((prevState) => {
       const newState = { ...prevState };
@@ -91,22 +106,6 @@ function Pedidos() {
 
   };
 
-  function calcularTotal(productosSeleccionados) {
-    let total = 0;
-    productosSeleccionados.forEach((producto) => {
-      console.log(producto.cantidad);
-      const cantidad = parseInt(producto.cantidad) || 1;
-      const precio = parseFloat(producto.precio);
-      console.log(cantidad, precio);
-      if (!isNaN(cantidad) && !isNaN(precio)) {
-        total += precio * cantidad;
-      }
-    });
-    console.log(total);
-    return total.toFixed(0);
-  }
-
-
   return (
     <>
       <div className='HeaderComponentes'>
@@ -151,17 +150,22 @@ function Pedidos() {
             {pedido.productosSeleccionados && pedido.productosSeleccionados.length > 0 && (
               <div className="card-body">
                 {pedido.productosSeleccionados.map((productos) => (
+                  
                   <div className="card mx-auto w-100 my-2 row " key={productos.id}>
-
-                    <div>
-                      <h5 className='numeroCantidad'>{productos.cantidad > 0 ? productos.cantidad : "1"}</h5>
-                      <h5 className='nombreProducto'>{productos.nombre}</h5>
-                    </div>
-
+                    <i className="fa-regular fa-circle-xmark botonEliminarProducto" style={{ cursor: "pointer" }} ></i>
+                    
+                    
+                    <h5 className='nombreProducto'>{productos.nombre}</h5>
                     <p className='precioProducto'>
                       {productos.cantidad >= 1 ? '$' + productos.precio * productos.cantidad : '$' + productos.precio}
                     </p>
-
+                    
+                    <div className='d-flex botonesCantidad'>
+                    <i class="bi bi-dash-square botonMenosCard" style={{ cursor: "pointer" }}></i>
+                      <h5 className='numeroCantidad mx-2'>{productos.cantidad > 0 ? productos.cantidad : "1"}</h5>
+                      <i class="bi bi-plus-square botonMasCard" style={{ cursor: "pointer" }}></i>
+                  </div>
+                  
                   </div>
                 ))}
               </div>

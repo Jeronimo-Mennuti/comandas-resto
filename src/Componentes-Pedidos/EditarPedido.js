@@ -1,8 +1,6 @@
 //no funcionan los botones '+' '-' y trash
 //(EditarProducto.js) al editar un producto lo edita pero no borra el anterior
 
-
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import { collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
@@ -116,7 +114,7 @@ function EditarPedido({ onActualizarPedido }) {
 
     return (
 
-      <div className="card mx-auto w-100 my-2 row" key={producto.id}>
+      <div className="card mx-auto w-75 my-2 row" key={producto.id}>
         <i className="fa-regular fa-circle-xmark botonEliminarProducto" onClick={eliminarProductoTrash} style={{ cursor: "pointer" }} ></i>
         <h5 className="nombreProducto">{producto.nombre}</h5>
         <p className="precioProducto">${precioActualizado}</p>
@@ -235,76 +233,21 @@ function EditarPedido({ onActualizarPedido }) {
         <label for="floatingInput">Agregar Producto</label>
 
         {sugerencias.length > 0 && (
-          <ul className="sugerencias-lista">
-            {sugerencias.map((sugerencia) => (
-              <li
-                key={sugerencia.id}
-                onClick={() => handleAgregarProducto(sugerencia)}
-              >
+          <div className="sugerencias-lista">
+          {sugerencias.map((sugerencia) => (
+            <div className="card sugerencia-card" key={sugerencia.id} onClick={() => handleAgregarProducto(sugerencia)}>
+              <div className="card-body">
                 {sugerencia.nombre}
-              </li>
-            ))}
-          </ul>
+              </div>
+            </div>
+          ))}
+        </div>
         )}
       </div>
 
       <div>
         {productosSeleccionados.map((producto) => renderizarProducto(producto))}
       </div>
-
-      <div className="card mx-auto w-75 my-3 cardCompleta" key={pedidos.id}>
-        <div className="card-header">
-
-          <div className='d-flex mx-auto my-1 '>
-            <h4 className="card-title d-flex justify-content-center">
-              Mesa
-            </h4>
-          </div>
-
-          <button
-            className="btn btn-link btn-collapse"
-            data-parent="#accordion"
-            data-toggle="collapse"
-            role="button"
-            data-delay="1000"
-            data-interval="1000"
-            onClick={() => handleToggleCollapse()}>
-            <i className="fas fa-chevron-down"></i>
-          </button>
-        </div>
-
-        {productos.length > 0 && (
-          <div className="card-body">
-            {productos.map((producto) => (
-              <div className="card mx-auto w-100 my-2 row" key={producto.id}>
-
-                <i className="fa-regular fa-circle-xmark botonEliminarProducto" style={{ cursor: "pointer" }}></i>
-                <div className='d-flex nombreYCantidad'>
-                  <h5 className="nombreProducto">{producto.nombre} </h5>
-
-                  <div className='d-flex botonesCantidad'>
-                    <i class="bi bi-dash-square botonMenosCard" style={{ cursor: "pointer" }}></i>
-
-                    <p className='numeroCantidad'>{producto.cantidad > 0 ? producto.cantidad : "1"}</p>
-
-                    <i class="bi bi-plus-square botonMasCard" style={{ cursor: "pointer" }}></i>
-                  </div>
-
-                </div>
-
-                <p className="precioProducto">
-                  {producto.cantidad >= 1 ? '$' + producto.precio * producto.cantidad : '$' + producto.precio}
-                </p>
-
-              </div>
-            ))}
-          </div>
-        )}
-
-        <div className="card-footer d-flex justify-content-center" />
-
-      </div>
-
 
       <div className='FooterComponentes'>
 
