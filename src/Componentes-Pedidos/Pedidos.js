@@ -25,7 +25,7 @@ function Pedidos() {
     });
   };
 
-   useEffect(() => {
+  useEffect(() => {
     async function fetchPedidos() {
       const pedidosCollection = collection(db, "pedidos");
       const pedidosSnapshot = await getDocs(pedidosCollection);
@@ -110,7 +110,6 @@ function Pedidos() {
   return (
     <>
       <div className='HeaderComponentes'>
-
         <Link to="/NuevoPedido">
           <button className="btn btn-primary BotonMas">
             <i className="fas fa-plus"></i>
@@ -167,8 +166,8 @@ function Pedidos() {
                 ))}
               </div>
             )}
-            </div>
-          
+          </div>
+
           <div className="card-footer d-flex justify-content-center">
             <i onClick={() => eliminarPedidos(pedido.id)} className="fa-regular fa-circle-xmark" style={{ color: 'white', marginRight: '8px', marginTop: '5px' }}></i>
             <Link to={`/EditarPedido/${pedido.id}`}>
@@ -177,14 +176,14 @@ function Pedidos() {
           </div>
         </div>
       ))}
-      
+
       <div className='FooterComponentes'>
 
         <div className="BotonFooter">
           <Link to="/NuevoPedido">
             <button className="btn btn-primary">
               <i className="fas fa-plus"></i>
-             Nuevo Pedido
+              Nuevo Pedido
             </button>
           </Link>
         </div>

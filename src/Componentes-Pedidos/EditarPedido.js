@@ -1,11 +1,10 @@
-//quiero que al entrar en editarPedido se rendericen los productos del pedido
 //no funcionan los botones '+' '-' y trash
 //(EditarProducto.js) al editar un producto lo edita pero no borra el anterior
 
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleArrowLeft, faCirclePlus, faMinusCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCircleArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import { collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
@@ -115,29 +114,19 @@ function EditarPedido({ onActualizarPedido }) {
       setProductosSeleccionados(newProductosSeleccionados);
     };
 
-
-
     return (
 
-      <div className="card mx-auto w-75 my-4" key={producto.id}>
+      <div className="card mx-auto w-100 my-2 row" key={producto.id}>
+        <i className="fa-regular fa-circle-xmark botonEliminarProducto" onClick={eliminarProductoTrash} style={{ cursor: "pointer" }} ></i>
+        <h5 className="nombreProducto">{producto.nombre}</h5>
+        <p className="precioProducto">${precioActualizado}</p>
 
-        <h5 className="">{producto.nombre}</h5>
-        <p className="">${precioActualizado}</p>
-
-        <div className="">
-          <div className="">
-            <FontAwesomeIcon icon={faCirclePlus} onClick={agregarProducto} size="xl" style={{ cursor: "pointer" }} />
-          </div>
-
-          {cantidad > 0 && <div className="mx-2">{cantidad}</div>}
-
-          <div>
-            <FontAwesomeIcon icon={faMinusCircle} onClick={eliminarProducto} size="xl" style={{ cursor: "pointer" }} />
-          </div>
-        </div>
-
-        <div className="">
-          <FontAwesomeIcon icon={faTimesCircle} onClick={eliminarProductoTrash} size="xl" style={{ cursor: "pointer", position: "absolute", top: 10, right: 15, }} />
+        <div className='d-flex botonesCantidad'>
+          <i class="bi bi-dash-square botonMenosCard" onClick={eliminarProducto} style={{ cursor: "pointer" }}></i>
+          <p className="numeroCantidad">
+            {cantidad > 0 && <div className="mx-2">{cantidad}</div>}
+          </p>
+          <i class="bi bi-plus-square botonMasCard" onClick={agregarProducto} style={{ cursor: "pointer" }}></i>
         </div>
       </div>
     );
@@ -263,14 +252,12 @@ function EditarPedido({ onActualizarPedido }) {
         {productosSeleccionados.map((producto) => renderizarProducto(producto))}
       </div>
 
-
-
       <div className="card mx-auto w-75 my-3 cardCompleta" key={pedidos.id}>
         <div className="card-header">
 
           <div className='d-flex mx-auto my-1 '>
             <h4 className="card-title d-flex justify-content-center">
-              Mesa {pedidos.numeroMesa}
+              Mesa
             </h4>
           </div>
 
@@ -286,38 +273,37 @@ function EditarPedido({ onActualizarPedido }) {
           </button>
         </div>
 
-
         {productos.length > 0 && (
           <div className="card-body">
             {productos.map((producto) => (
               <div className="card mx-auto w-100 my-2 row" key={producto.id}>
-                
-                <i className="fa-regular fa-circle-xmark botonEliminarProducto"></i>
-                <div className='d-flex nombreYCantidad'>
-                <h5 className="nombreProducto">{producto.nombre} </h5>
 
-                 <div className='d-flex botonesCantidad'> 
-                <i class="bi bi-dash-square botonMenosCard" style={{ cursor: "pointer" }}></i>
-                <div className='precioProducto'>
-                <h5 className=''>{producto.cantidad > 0 ? producto.cantidad : "1"}</h5>
+                <i className="fa-regular fa-circle-xmark botonEliminarProducto" style={{ cursor: "pointer" }}></i>
+                <div className='d-flex nombreYCantidad'>
+                  <h5 className="nombreProducto">{producto.nombre} </h5>
+
+                  <div className='d-flex botonesCantidad'>
+                    <i class="bi bi-dash-square botonMenosCard" style={{ cursor: "pointer" }}></i>
+
+                    <p className='numeroCantidad'>{producto.cantidad > 0 ? producto.cantidad : "1"}</p>
+
+                    <i class="bi bi-plus-square botonMasCard" style={{ cursor: "pointer" }}></i>
+                  </div>
+
                 </div>
-                <i class="bi bi-plus-square botonMasCard" style={{ cursor: "pointer" }}></i>
-                </div>
-                
-                </div>
-                
-                <p className="numeroCantidad">
-                    {producto.cantidad >= 1 ? '$' + producto.precio * producto.cantidad : '$' + producto.precio}
-                  </p>
+
+                <p className="precioProducto">
+                  {producto.cantidad >= 1 ? '$' + producto.precio * producto.cantidad : '$' + producto.precio}
+                </p>
 
               </div>
             ))}
           </div>
         )}
-      
-      <div className="card-footer d-flex justify-content-center"/>
-            
-</div>
+
+        <div className="card-footer d-flex justify-content-center" />
+
+      </div>
 
 
       <div className='FooterComponentes'>
