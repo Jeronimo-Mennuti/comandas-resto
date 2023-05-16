@@ -109,55 +109,17 @@ function NuevoPedido({ onAgregarPedido }) {
 
 
     return (
-      <div className="" key={producto.id}>
-        <div className="">
-          <div className="">
+      <div className="card mx-auto w-75 my-2 row" key={producto.id}>
+        <i className="fa-regular fa-circle-xmark botonEliminarProducto" onClick={eliminarProductoTrash} style={{ cursor: "pointer" }} ></i>
+        <h5 className="nombreProducto">{producto.nombre}</h5>
+        <p className="precioProducto">${precioActualizado}</p>
 
-            <div className="">
-              <FontAwesomeIcon
-                icon={faCirclePlus}
-                onClick={agregarProducto}
-                size="xl"
-                style={{ cursor: "pointer" }}
-              />
-            </div>
-
-            {cantidad > 0 && (
-              <div className="mx-2">{cantidad}</div>
-            )}
-
-            <div>
-              <FontAwesomeIcon
-                icon={faMinusCircle}
-                onClick={eliminarProducto}
-                size="xl"
-                style={{ cursor: "pointer" }}
-              />
-            </div>
-          </div>
-          <h5 className="">{producto.nombre}</h5>
-
-          <p className="">
-            ({producto.descripcion})
+        <div className='d-flex botonesCantidad'>
+          <i class="bi bi-dash-square botonMenosCard" onClick={eliminarProducto} style={{ cursor: "pointer" }}></i>
+          <p className="numeroCantidad">
+            {cantidad > 0 && <div className="mx-2">{cantidad}</div>}
           </p>
-
-          <p className="">${precioActualizado}</p>
-
-
-
-          <div className="">
-            <FontAwesomeIcon
-              icon={faTimesCircle}
-              onClick={eliminarProductoTrash}
-              size="xl"
-              style={{
-                cursor: "pointer",
-                position: "absolute",
-                top: 10,
-                right: 15,
-              }}
-            />
-          </div>
+          <i class="bi bi-plus-square botonMasCard" onClick={agregarProducto} style={{ cursor: "pointer" }}></i>
         </div>
       </div>
     );
@@ -229,12 +191,11 @@ function NuevoPedido({ onAgregarPedido }) {
         {sugerencias.length > 0 && (
           <ul className="sugerencias-lista">
             {sugerencias.map((sugerencia) => (
-              <li
-                key={sugerencia.id}
-                onClick={() => handleAgregarProducto(sugerencia)}
-              >
+              <div className="card sugerencia-card" key={sugerencia.id} onClick={() => handleAgregarProducto(sugerencia)}>
+              <div className="card-body">
                 {sugerencia.nombre}
-              </li>
+              </div>
+            </div>
             ))}
           </ul>
         )}
