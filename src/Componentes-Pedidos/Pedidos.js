@@ -1,5 +1,17 @@
+//error al editar productos y apretar guardar no se guarda lo editado.
+//problemas al apretar boton volver atras con categorias creadas.
+//botones de categoria y eliminar no funcionan en Pedidos.js
+//Cuando tengo 0 mesas creadas el css de la card dentro de la mesa a crear cambia.
+
+
+
+//agregar EditarCategoria.
+//funcionalidad al boton de disponible en productos.
+//arreglar los scrolls de todos los componentes.
+
+
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus, faTrash, faMinusCircle, faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { db } from "../ConfigFirebase/Firebase";

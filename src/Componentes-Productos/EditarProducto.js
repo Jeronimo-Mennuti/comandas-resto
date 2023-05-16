@@ -82,7 +82,7 @@ function EditarProducto({ onAgregarProducto }) {
     <>
       <div>
         <Link to={`/Productos/${id}`}>
-        <FontAwesomeIcon className='BotonVolver' icon={faCircleArrowLeft} size= "3x"/>
+          <FontAwesomeIcon className='BotonVolver' icon={faCircleArrowLeft} size="3x" />
         </Link>
       </div>
       <div >
@@ -90,40 +90,44 @@ function EditarProducto({ onAgregarProducto }) {
           Editar Producto
         </h1>
       </div>
-      
+
       <div className='form-floating mb-3 input'>
-        <input 
-        type='text'
-        className="form-control"
-        id="floatingInput"
-        min="1" 
-        placeholder='Nombre' 
-        value={nombre} onChange={(e) => setNombre(e.target.value)} />
+        <input
+          type='text'
+          className="form-control"
+          id="floatingInput"
+          min="1"
+          placeholder='Nombre'
+          value={nombre} onChange={(e) => setNombre(e.target.value)} />
         <label for="floatingInput">Nombre</label>
       </div>
 
       <div className='form-floating mb-3 input'>
-        <input 
-        type='text'
-        className="form-control"
-        id="floatingInput"
-        min="1" 
-        placeholder='Descripcion' 
-         value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
-         <label for="floatingInput">Descripcion</label>
+        <input
+          type='text'
+          className="form-control"
+          id="floatingInput"
+          min="1"
+          placeholder='Descripcion'
+          value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
+        <label for="floatingInput">Descripcion</label>
       </div>
 
       <div className='form-floating mb-3 input'>
-        <input 
-        type='number'
-        className="form-control"
-        id="floatingInput"
-        min="1" 
-        placeholder='Precio' 
-        value={precio} onChange={(e) => setPrecio(e.target.value)} />
+        <input
+          type='number'
+          className="form-control"
+          id="floatingInput"
+          min="1"
+          placeholder='Precio'
+          value={precio} onChange={(e) => setPrecio(e.target.value)} />
         <label for="floatingInput">Precio</label>
       </div>
 
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider"></span>
+      </label>
 
       <div className='FooterComponentes'>
 

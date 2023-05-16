@@ -7,7 +7,7 @@ import { collection, addDoc } from 'firebase/firestore';
 
 
 
-function NuevoProveedor(onAgregarCategoria) {
+function NuevaCategoria(onAgregarCategoria) {
   const [nombre, setNombre] = useState('');
   const [descripcion, setDescripcion] = useState('');
   const navigate = useNavigate();
@@ -102,4 +102,4 @@ function NuevoProveedor(onAgregarCategoria) {
   )
 }
 
-export default NuevoProveedor
+export default NuevaCategoria;

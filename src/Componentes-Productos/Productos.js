@@ -63,7 +63,7 @@ function Productos() {
       </div>
 
       <div>
-        <h1 className="TituloComponentes">Articulos de {categorias}</h1>
+        <h1 className="TituloComponentes">Categoria {categorias}</h1>
       </div>
 
 

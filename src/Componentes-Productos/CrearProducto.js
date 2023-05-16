@@ -89,7 +89,7 @@ function CrearProducto({ onAgregarProducto }) {
       <div className='FooterComponentes'>
 
         <div className="BotonFooter">
-          <Link to="/Pedidos">
+          <Link to="/Categorias">
             <button
               className="btn btn-primary"
               onClick={agregarProducto}>Guardar</button>
