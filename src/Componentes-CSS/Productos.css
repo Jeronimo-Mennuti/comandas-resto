@@ -1,14 +1,14 @@
 
 
 .cardCompleta:hover{
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 
 
 /*EDITAR PRODUCTO CSS */
 
-.slider {
+.sliders {
     background-color: #ffffff2b;
     border-radius: 100px;
     padding: 1px;

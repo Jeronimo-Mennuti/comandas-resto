@@ -6,6 +6,7 @@
   transform: translateY(-40%);
   color: white !important;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
+  
 }
 
 .card {
@@ -14,10 +15,30 @@
 }
 
 .collapse {
-  transition: height 0.5s ease-out;
-  background-color: rgb(221, 221, 221);
-  
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease; /* Ajusta la duración de la transición según tus necesidades */
 }
+
+.show {
+  max-height: 1000px; /* Ajusta un valor alto para garantizar que la altura se expanda completamente */
+  transition: max-height 0s ease; /* Ajusta la duración de la transición según tus necesidades */
+}
+
+/* Estilo personalizado para la animación de apertura */
+@keyframes custom-collapse {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 1000px; /* Ajusta la altura máxima según tus necesidades */
+  }
+}
+
+.show {
+  animation: custom-collapse 1.5s ease forwards; /* Ajusta la duración de la animación según tus necesidades */
+}
+
 
 .card-header {
   background-color: rgb(83, 173, 8) !important;
@@ -74,7 +95,7 @@ cursor:pointer;
 }
 
 .card-container {
-  max-height: 610px;
+  max-height: 670px;
   overflow-y: auto;
   margin-top: -43px; 
   padding-top: 5px;
