@@ -4,18 +4,15 @@
 
 //agregar EditarCategoria.
 //funcionalidad al boton de disponible en productos.
-//arreglar los scrolls de todos los componentes.
 //agregar un boton check que envie los datos del pedido al historial.
 //agregar una card con el titulo segun la categoria y al abrirlo se vean los productos para agregar.
 //agregar cantidad de productos que hay en cada categoria.
 //agregar boton para eliminar categorias.
 
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { db } from "../ConfigFirebase/Firebase";
-import { collection, getDocs, deleteDoc, doc, getDoc } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { Collapse } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -88,6 +85,8 @@ function Pedidos() {
     }
   }
 
+  
+
   const renderizarProducto = (producto) => {
     const index = productosSeleccionados.findIndex((p) => p.id === producto.id);
     const cantidad = productosSeleccionados[index]?.cantidad || 1;
@@ -132,6 +131,7 @@ function Pedidos() {
         <h1 className="TituloComponentes">Pedidos</h1>
       </div>
 
+      <div className="card-container">
       {pedidos.map((pedido, index) => (
         <div className="card mx-auto w-75 my-3 cardCompleta" key={pedido.id}>
           <div className="card-header">
@@ -192,7 +192,7 @@ function Pedidos() {
           </div>
         </div>
       ))}
-
+</div>
       <div className='FooterComponentes'>
 
         <div className="BotonFooter">

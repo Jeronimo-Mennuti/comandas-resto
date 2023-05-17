@@ -41,6 +41,7 @@ function Categorias() {
         <h1 className='TituloComponentes'>Categorias</h1>
       </div>
 
+      <div className="ScrollContainer">
       <div className="Categorias">
         {categorias.length > 0 && (
           <div>
@@ -81,7 +82,7 @@ function Categorias() {
         </nav>
 
       </div>
-
+</div>
     </>
   )
 }

@@ -32,3 +32,14 @@
   background-color: rgb(3, 86, 62);
 }
 
+.ScrollContainer {
+  max-height: 640px; /* Valor predeterminado para pantallas más grandes */
+  overflow-y: auto;
+  margin-top: -43px; 
+  padding-top: 5px; 
+
+  @media (max-width: 576px) { /* Ajusta el valor según el punto de quiebre para dispositivos móviles */
+    max-height: 570px; /* Valor para dispositivos móviles */
+  }
+}
+

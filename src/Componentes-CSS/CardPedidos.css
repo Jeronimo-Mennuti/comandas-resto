@@ -72,3 +72,14 @@
 margin:5px;
 cursor:pointer;
 }
+
+.card-container {
+  max-height: 610px;
+  overflow-y: auto;
+  margin-top: -43px; 
+  padding-top: 5px;
+ 
+  @media (max-width: 576px) { /* Ajusta el valor según el punto de quiebre para dispositivos móviles */
+    max-height: 570px; /* Valor para dispositivos móviles */
+  } 
+}

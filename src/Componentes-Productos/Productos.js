@@ -69,7 +69,7 @@ function Productos() {
 
 
 
-      <div className="">
+      <div className="ScrollContainer">
         {productos.length > 0 && (
           <div className=''>
             {productos.map((productos) => (
