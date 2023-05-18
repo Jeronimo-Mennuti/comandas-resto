@@ -1,7 +1,3 @@
-//no me muestra los productos al volver atras en editar productos
-
-
-
 import { collection, addDoc, doc, getDoc, updateDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
@@ -18,8 +14,7 @@ function EditarProducto({ onAgregarProducto }) {
   const [precio, setPrecio] = useState("");
   const [nombre, setNombre] = useState("");
   const productosCollection = collection(db, 'productos');
-
-
+ 
 
 
 
@@ -81,7 +76,7 @@ function EditarProducto({ onAgregarProducto }) {
   return (
     <>
       <div>
-        <Link to={`/Productos/${id}`}>
+      <Link to="/Categorias">
           <FontAwesomeIcon className='BotonVolver' icon={faCircleArrowLeft} size="3x" />
         </Link>
       </div>
@@ -123,12 +118,7 @@ function EditarProducto({ onAgregarProducto }) {
           value={precio} onChange={(e) => setPrecio(e.target.value)} />
         <label for="floatingInput">Precio</label>
       </div>
-
-      <label class="switch">
-        <input type="checkbox" />
-        <span class="slider"></span>
-      </label>
-
+      
       <div className='FooterComponentes'>
 
         <div className="BotonFooter">

@@ -13,7 +13,7 @@ function NuevaCategoria(onAgregarCategoria) {
   const navigate = useNavigate();
   const categoriasCollection = collection(db, 'categorias')
 
-  const agregarCategoria = async () => {
+  const agregarCategoria = async (id) => {
     if (nombre.trim() === '') {
       alert('Debe agregar una categoria para continuar');
       return;

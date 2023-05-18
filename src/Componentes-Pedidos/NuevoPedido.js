@@ -1,11 +1,11 @@
-//al apretar en el boton guardar se guarden los datos de los inputs en Pedidos.js
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { db } from "../ConfigFirebase/Firebase";
 import { collection, getDocs, addDoc } from "firebase/firestore";
+
+
 
 function NuevoPedido({ onAgregarPedido }) {
   const [productos, setProductos] = useState([]);
@@ -106,7 +106,7 @@ function NuevoPedido({ onAgregarPedido }) {
       setProductosSeleccionados(newProductosSeleccionados);
     };
 
-
+   
 
     return (
       <div className="card mx-auto w-75 my-2 row" key={producto.id}>
@@ -188,6 +188,8 @@ function NuevoPedido({ onAgregarPedido }) {
           value={textoBusqueda}
         />
         <label for="floatingInput">Agregar Producto</label>
+        
+        <div className="ScrollSugerencias">
         {sugerencias.length > 0 && (
           <ul className="sugerencias-lista">
             {sugerencias.map((sugerencia) => (
@@ -200,11 +202,12 @@ function NuevoPedido({ onAgregarPedido }) {
           </ul>
         )}
       </div>
-
+      </div>
+      
       <div>
         {productosSeleccionados.map((producto) => renderizarProducto(producto))}
       </div>
-
+      
       <div className='FooterComponentes'>
 
         <div className="BotonFooter">

@@ -78,3 +78,11 @@ font-family: 'Roboto', sans-serif;
   font-family: 'Roboto', sans-serif;
 
 }
+
+.NavBarLogin {
+  position: fixed;
+  top: 1;
+  width: 100%;
+  z-index: 100;
+}
+

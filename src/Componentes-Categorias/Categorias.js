@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../ConfigFirebase/Firebase";
 import { Link } from 'react-router-dom';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -21,6 +21,29 @@ function Categorias() {
     }
     fetchProductos();
   }, []);
+
+  async function eliminarCategoria(id) {
+    try {
+      console.log("Eliminando categoria con ID:", id);
+      const docRef = doc(db, "categorias", String(id));
+      await deleteDoc(docRef);
+      console.log("categoria eliminado de la colección en Firebase");
+
+      // obtener los pedidos actualizados de Firebase
+      const categoriasSnapshot = await getDocs(collection(db, "categorias"));
+      const categoriasActualizadas = categoriasSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      // actualizar el estado local con la nueva lista de pedidos
+      setCategorias(categoriasActualizadas);
+      console.log("categoria eliminada del estado local");
+    } catch (error) {
+      console.error("Error al eliminar la categoria: ", error);
+      alert("Error al eliminar el pedido: " + error.message);
+    }
+  }
 
   return (
     <>
@@ -48,6 +71,7 @@ function Categorias() {
             {categorias.map((categorias) => (
               <Link to={`/Productos/${categorias.nombre}`}>
                 <div className='' key={categorias.id}>
+                <i  onClick={() => eliminarCategoria(categorias.id)} className="fa-regular fa-circle-xmark" style={{ color: 'white', marginTop: '5px', float: 'Right' }}></i>
                   <h5 className=''>{categorias.nombre}</h5>
                 </div>
               </Link>

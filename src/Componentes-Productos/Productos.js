@@ -5,7 +5,9 @@ import { collection, getDocs, deleteDoc, doc, query, where } from "firebase/fire
 import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Productos() {
+
+
+function Productos () {
   const [productos, setProductos] = useState([]);
   const { categorias } = useParams();
   console.log(categorias)
@@ -76,6 +78,7 @@ function Productos() {
               <div className="card mx-auto w-75 my-2" style={{ height: '78px'}} key={productos.id}>
 
                 <h6  style={{ marginLeft: '8px',marginTop: '10px', fontWeight:'bold' }}>{productos.nombre}</h6>
+               
                 <p  style={{ marginLeft: '8px' }}>${productos.precio}</p>
 
                 <div className="position-absolute top-0 end-0">
@@ -92,6 +95,8 @@ function Productos() {
           </div>
         )}
       </div>
+
+    
 
       <div className='FooterComponentes'>
 
@@ -119,7 +124,7 @@ function Productos() {
             </ul>
           </nav>
         </div>
-
+        
       </div>
     </>
   );

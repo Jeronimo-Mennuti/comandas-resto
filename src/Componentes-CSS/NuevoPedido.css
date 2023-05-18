@@ -1,0 +1,10 @@
+.ScrollSugerencias {
+    max-height: 350px; /* Valor predeterminado para pantallas más grandes */
+    overflow-y: auto;
+    margin-top: 9px;
+    padding-top: 5px;
+  
+    @media (max-width: 576px) { /* Ajusta el valor según el punto de quiebre para dispositivos móviles */
+      max-height: 315px; /* Valor para dispositivos móviles */
+    }
+  }

@@ -6,6 +6,7 @@ import "./Componentes-CSS/Categorias.css";
 import "./Componentes-CSS/Input.css";
 import "./Componentes-CSS/Productos.css";
 import "./Componentes-CSS/Login.css";
+import "./Componentes-CSS/NuevoPedido.css";
 
 
 

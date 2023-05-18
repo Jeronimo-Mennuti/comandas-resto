@@ -12,6 +12,7 @@ function CrearProducto({ onAgregarProducto }) {
   const productosCollection = collection(db, 'productos')
   const navigate = useNavigate();
   const { categorias } = useParams();
+  const [isChecked, setIsChecked] = useState(false);
 
   const agregarProducto = async () => {
     if (nombre.trim() === '') {
@@ -38,13 +39,16 @@ function CrearProducto({ onAgregarProducto }) {
     }
 
   };
-
+  
+  const toggleSwitch = () => {
+    setIsChecked(!isChecked);
+  };
 
   return (
     <>
       <div>
-        <Link to="/Productos">
-        <FontAwesomeIcon className='BotonVolver' icon={faCircleArrowLeft} size= "3x"/>
+        <Link to="/Categorias">
+          <FontAwesomeIcon className='BotonVolver' icon={faCircleArrowLeft} size="3x" />
         </Link>
       </div>
 
@@ -53,37 +57,43 @@ function CrearProducto({ onAgregarProducto }) {
       </div>
 
       <div className='form-floating mb-3 input'>
-        <input 
-        type='text'
-        className="form-control"
-        id="floatingInput"
-        min="1" 
-        placeholder='Nombre' 
-        value={nombre} onChange={(e) => setNombre(e.target.value)} />
+        <input
+          type='text'
+          className="form-control"
+          id="floatingInput"
+          min="1"
+          placeholder='Nombre'
+          value={nombre} onChange={(e) => setNombre(e.target.value)} />
         <label for="floatingInput">Nombre</label>
       </div>
 
       <div className='form-floating mb-3 input'>
-        <input 
-        type='text'
-        className="form-control"
-        id="floatingInput"
-        min="1"  
-        placeholder='Descripcion' 
-        value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
+        <input
+          type='text'
+          className="form-control"
+          id="floatingInput"
+          min="1"
+          placeholder='Descripcion'
+          value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
         <label for="floatingInput">Descripcion</label>
       </div>
 
       <div className='form-floating mb-3 input'>
-        <input 
-        type='text'
-        className="form-control"
-        id="floatingInput"
-        min="1"  
-        placeholder='Precio' 
-        value={precio} onChange={(e) => setPrecio(e.target.value)} />
+        <input
+          type='text'
+          className="form-control"
+          id="floatingInput"
+          min="1"
+          placeholder='Precio'
+          value={precio} onChange={(e) => setPrecio(e.target.value)} />
         <label for="floatingInput">Precio</label>
       </div>
+
+      <label className="switch">
+      <input type="checkbox" checked={isChecked} onChange={toggleSwitch} />
+      <span className="slider"></span>
+      <div className={`dot ${isChecked ? 'green' : 'red'}`}></div>
+    </label>
 
 
       <div className='FooterComponentes'>
