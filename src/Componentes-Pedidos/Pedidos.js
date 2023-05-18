@@ -5,15 +5,12 @@
 //agregar EditarCategoria.
 //funcionalidad al boton de disponible en productos.
 //agregar un boton check que envie los datos del pedido al historial.
-//agregar una card con el titulo segun la categoria y al abrirlo se vean los productos para agregar.
-//agregar cantidad de productos que hay en cada categoria.
 
 
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { db } from "../ConfigFirebase/Firebase";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
-import { Collapse } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Pedidos() {
@@ -21,9 +18,7 @@ function Pedidos() {
   const [isOpen, setIsOpen] = useState([]);
   const [productos, setProductos] = useState([]);
   const [productosSeleccionados, setProductosSeleccionados] = useState([]);
-  const [nota, setNota] = useState("");
-  const [comensales, setComensales] = useState("");
-  const [numeroMesa, setNumeroMesa] = useState("");
+  
 
 
   function calcularTotal(productosSeleccionados) {

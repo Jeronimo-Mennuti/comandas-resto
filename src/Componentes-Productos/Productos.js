@@ -11,6 +11,7 @@ function Productos () {
   const [productos, setProductos] = useState([]);
   const { categorias } = useParams();
   console.log(categorias)
+  const [cantidadProductos, setCantidadProductos] = useState(0);
 
   useEffect(() => {
     async function fetchProductos() {
@@ -25,6 +26,10 @@ function Productos () {
     }
     fetchProductos();
   }, []);
+
+  useEffect(() => {
+    setCantidadProductos(productos.length);
+  }, [productos]);
 
   async function eliminarProducto(id) {
     try {
@@ -65,7 +70,8 @@ function Productos () {
       </div>
 
       <div>
-        <h1 className="TituloComponentes">Categoria {categorias}</h1>
+        <h1 className="TituloComponentes">{categorias}({cantidadProductos})</h1>
+        
       </div>
 
 

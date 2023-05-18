@@ -8,6 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Categorias() {
   const [categorias, setCategorias] = useState([]);
+ 
+  
+
 
   useEffect(() => {
     async function fetchProductos() {
@@ -21,6 +24,8 @@ function Categorias() {
     }
     fetchProductos();
   }, []);
+
+
 
   async function eliminarCategoria(id) {
     try {
@@ -45,12 +50,14 @@ function Categorias() {
     }
   }
 
+
+
   return (
     <>
       <div className='HeaderComponentes'>
-        
+
         <Link to="/Pedidos">
-          <FontAwesomeIcon className='BotonVolver' icon={faCircleArrowLeft} size= "3x"/>
+          <FontAwesomeIcon className='BotonVolver' icon={faCircleArrowLeft} size="3x" />
         </Link>
 
         <Link to="/NuevaCategoria">
@@ -65,48 +72,49 @@ function Categorias() {
       </div>
 
       <div className="ScrollContainer">
-      <div className="Categorias">
-        {categorias.length > 0 && (
-          <div>
-            {categorias.map((categorias) => (
-              <Link to={`/Productos/${categorias.nombre}`}>
-                <div className='' key={categorias.id}>
-                <i  onClick={() => eliminarCategoria(categorias.id)} className="fa-regular fa-circle-xmark" style={{ color: 'white', marginTop: '5px', float: 'Right' }}></i>
-                  <h5 className=''>{categorias.nombre}</h5>
-                </div>
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <div className='FooterComponentes'>
-
-        <div className="BotonFooter">
-          <Link to="/NuevaCategoria">
-            <button className="btn btn-primary">
-              <i className="fas fa-plus"></i>
-              Nueva categoria
-            </button>
-          </Link>
+        <div className="Categorias">
+          {categorias.length > 0 && (
+            <div>
+              {categorias.map((categorias) => (
+                <Link to={`/Productos/${categorias.nombre}`}>
+                  <div className='' key={categorias.id}>
+                    <i onClick={() => eliminarCategoria(categorias.id)} className="fa-regular fa-circle-xmark" style={{ color: 'white', marginTop: '5px', float: 'Right' }}></i>
+                    <h5>{categorias.nombre}</h5>
+                    
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
 
-        <nav className='NavBar'>
-          <ul>
-            <li>
-              <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
-            </li>
-            <li>
-              <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
-            </li>
-            <li>
-              <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
-            </li>
-          </ul>
-        </nav>
+        <div className='FooterComponentes'>
 
+          <div className="BotonFooter">
+            <Link to="/NuevaCategoria">
+              <button className="btn btn-primary">
+                <i className="fas fa-plus"></i>
+                Nueva categoria
+              </button>
+            </Link>
+          </div>
+
+          <nav className='NavBar'>
+            <ul>
+              <li>
+                <Link to="/Pedidos">Pedidos <i className="fas fa-clipboard-list"></i></Link>
+              </li>
+              <li>
+                <Link to="/Categorias">Categorias <i className="fas fa-box-open"></i></Link>
+              </li>
+              <li>
+                <Link to="/Historial">Historial <i className="fas fa-history"></i></Link>
+              </li>
+            </ul>
+          </nav>
+
+        </div>
       </div>
-</div>
     </>
   )
 }

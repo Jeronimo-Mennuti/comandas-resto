@@ -12,7 +12,8 @@ function CrearProducto({ onAgregarProducto }) {
   const productosCollection = collection(db, 'productos')
   const navigate = useNavigate();
   const { categorias } = useParams();
-  const [isChecked, setIsChecked] = useState(false);
+  
+  
 
   const agregarProducto = async () => {
     if (nombre.trim() === '') {
@@ -40,9 +41,7 @@ function CrearProducto({ onAgregarProducto }) {
 
   };
   
-  const toggleSwitch = () => {
-    setIsChecked(!isChecked);
-  };
+  
 
   return (
     <>
@@ -90,10 +89,9 @@ function CrearProducto({ onAgregarProducto }) {
       </div>
 
       <label className="switch">
-      <input type="checkbox" checked={isChecked} onChange={toggleSwitch} />
+      <input type="checkbox"  />
       <span className="slider"></span>
-      <div className={`dot ${isChecked ? 'green' : 'red'}`}></div>
-    </label>
+      </label>
 
 
       <div className='FooterComponentes'>
