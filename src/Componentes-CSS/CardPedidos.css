@@ -100,7 +100,7 @@ cursor:pointer;
   margin-top: -43px; 
   padding-top: 5px;
  
-  @media (max-width: 576px) { /* Ajusta el valor según el punto de quiebre para dispositivos móviles */
+  @media (max-width: 389px) { /* Ajusta el valor según el punto de quiebre para dispositivos móviles */
     max-height: 570px; /* Valor para dispositivos móviles */
   } 
 }
